@@ -36,7 +36,7 @@ public class otp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.otp);
 
-
+System.err.println("Test github");
         // Prompt for read contacts Permission start
 
         if (ContextCompat.checkSelfPermission(this,
