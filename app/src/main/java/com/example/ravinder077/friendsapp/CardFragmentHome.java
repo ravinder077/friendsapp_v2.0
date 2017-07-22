@@ -34,10 +34,7 @@ public class CardFragmentHome extends Fragment {
         super.onCreate(savedInstanceState);
 
 
-        System.err.print("changed");
-        System.err.print("changed");
-        System.err.print("changed");
-        System.err.print("changed");
+        //new changes
 
         Toast.makeText(getContext(), "CardFragmentHome", Toast.LENGTH_SHORT).show();
 
