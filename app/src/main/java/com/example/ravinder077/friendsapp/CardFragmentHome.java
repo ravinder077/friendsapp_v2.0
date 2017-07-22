@@ -35,6 +35,9 @@ public class CardFragmentHome extends Fragment {
 
 
         System.err.print("changed");
+        System.err.print("changed");
+        System.err.print("changed");
+        System.err.print("changed");
 
         Toast.makeText(getContext(), "CardFragmentHome", Toast.LENGTH_SHORT).show();
 
