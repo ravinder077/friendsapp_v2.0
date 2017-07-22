@@ -33,6 +33,9 @@ public class CardFragmentHome extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+        System.err.print("changed");
+
         Toast.makeText(getContext(), "CardFragmentHome", Toast.LENGTH_SHORT).show();
 
         ArrayList<CardDataPost> al = new ArrayList<CardDataPost>();
