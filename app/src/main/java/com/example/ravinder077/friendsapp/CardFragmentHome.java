@@ -34,7 +34,7 @@ public class CardFragmentHome extends Fragment {
         super.onCreate(savedInstanceState);
 
 
-        //new changes
+        //new changess
 
         Toast.makeText(getContext(), "CardFragmentHome", Toast.LENGTH_SHORT).show();
 
