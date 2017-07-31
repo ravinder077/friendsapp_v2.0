@@ -129,11 +129,16 @@ public class User_Name extends AppCompatActivity {
                 String name = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
                 String phoneNumber = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
 
-          /*  System.err.println("name " + name);
-            System.err.println("number" + phoneNumber);*/
+           System.err.println("name " + name);
+           // System.err.println("number" + phoneNumber);*/
 
-                mydata.execSQL("insert or replace into contact values ('"+mobno+"','"+name+"','"+phoneNumber+"','null')");
+               // replaceAll("[-+.^:,]","")
 
+                //rajan modify for error special char start
+                name=name.replaceAll("[-+.^:,']","");
+                phoneNumber=phoneNumber.replaceAll("[-+.^:,']","");
+                mydata.execSQL("insert or replace into contact values ('"+mobno+"','"+name.replaceAll("\\s","")+"','"+phoneNumber.replaceAll("\\s","")+"','null')");
+                //rajan adding for error special char ends
           /*  OtpGen otpg=new OtpGen();
             String numurl="http://omtii.com/mile/contact_app.php?pid="+mobno+"&cname="+name.replaceAll("\\s","")+"&mobile="+phoneNumber.replaceAll("\\s","");
 
