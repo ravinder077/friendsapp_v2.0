@@ -136,7 +136,6 @@ public class User_Name extends AppCompatActivity {
 
                 //rajan modify for error special char start
                 name=name.replaceAll("[-+.^:,']","");
-                //upload from my account
                 phoneNumber=phoneNumber.replaceAll("[-+.^:,']","");
                 mydata.execSQL("insert or replace into contact values ('"+mobno+"','"+name.replaceAll("\\s","")+"','"+phoneNumber.replaceAll("\\s","")+"','null')");
                 //rajan adding for error special char ends

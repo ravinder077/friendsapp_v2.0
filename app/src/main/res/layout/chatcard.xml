@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    android:id="@+id/chatcard"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="70dp"
+    android:layout_width="match_parent"
+    android:layout_marginTop="1dp"
+    >
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        tools:context="raj.cards.MainActivity">
+        <RelativeLayout
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:src="@drawable/dp"
+                android:foregroundGravity="center"
+                />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/chatclick"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="3dp"
+            >
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="215dp"
+                android:layout_height="24dp"
+                android:text="ZCHAT"
+                android:clickable="true"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="@android:color/black"
+                />
+            <TextView
+                android:id="@+id/lstmsg"
+                android:layout_height="22dp"
+                android:layout_width="wrap_content"
+                android:text="last msg/ online/ typing /..."
+                android:textColor="@android:color/darker_gray"
+                android:layout_below="@+id/name"
+                android:layout_alignLeft="@+id/name"
+                android:layout_marginTop="5dp"
+                android:textSize="14dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+
+                />
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="online"
+                android:textAlignment="textEnd"
+                android:gravity="end"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:textSize="13dp"
+                android:layout_marginTop="11dp"
+
+
+                />
+            <RelativeLayout
+                android:id="@+id/onlineicon"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:minWidth="15dp"
+                android:background="@drawable/circle"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="4dp"
+                android:layout_below="@+id/time"
+                android:layout_marginTop="3dp"
+                android:gravity="center"
+                >
+                <TextView
+                    android:id="@+id/msgcount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="786"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:paddingRight="5dip"
+                    android:paddingLeft="5dip"
+                    android:textSize="11dp"
+                    />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>
+
