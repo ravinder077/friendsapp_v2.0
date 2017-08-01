@@ -1,5 +1,6 @@
 package com.example.ravinder077.friendsapp;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
 import java.io.BufferedReader;
@@ -13,6 +14,8 @@ import java.net.URL;
  */
 
 public class OtpGen extends AsyncTask<String,String,String> {
+
+
 
 
     @Override

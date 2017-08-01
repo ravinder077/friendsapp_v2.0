@@ -377,4 +377,7 @@ public class CardFragmentHome extends Fragment {
 
 
     }
+
+
+
 }
