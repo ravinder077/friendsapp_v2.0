@@ -165,7 +165,6 @@
                     android:layout_centerInParent="false"
                     android:layout_centerVertical="false"
                     android:adjustViewBounds="true"
-                    android:elevation="8dp"
                     android:scaleType="centerCrop"
                     android:maxHeight="420dp"
                     android:src="@drawable/dp"/>
