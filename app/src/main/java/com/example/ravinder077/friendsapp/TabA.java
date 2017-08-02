@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -125,7 +126,7 @@ public class TabA extends Fragment implements RapidFloatingActionContentLabelLis
             public void onClick(View v) {
 */
                 // get a reference to the already created main layout
-                android.support.v7.widget.CardView l1 = (android.support.v7.widget.CardView) getView().findViewById(R.id.grouppopup);
+                CardView l1 = (CardView) getView().findViewById(R.id.grouppopup);
                 System.err.println("Entry in on click");
 
                 // inflate the layout of the grouppopup window
