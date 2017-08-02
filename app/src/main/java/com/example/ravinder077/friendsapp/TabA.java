@@ -54,9 +54,9 @@ public class TabA extends Fragment implements RapidFloatingActionContentLabelLis
                 RelativeLayout l1 = (RelativeLayout) view.findViewById(R.id.relnew);
                 System.err.println("Entry in on click");
 
-                // inflate the layout of the popup window
+                // inflate the layout of the grouppopup window
                 LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-                View popupView = inflater.inflate(R.layout.popup, null);
+                View popupView = inflater.inflate(R.layout.grouppopup, null);
 
                 System.err.println("after inflate on click" + popupView);
                 // create the popup window
@@ -113,6 +113,7 @@ public class TabA extends Fragment implements RapidFloatingActionContentLabelLis
                 .setIconShadowRadius(ABTextUtil.dip2px(view.getContext(), 5))
                 .setIconShadowColor(0xff888888)
                 .setIconShadowDy(ABTextUtil.dip2px(view.getContext(), 5));
+        ;
 
 
         rfabHelper = new RapidFloatingActionHelper(
