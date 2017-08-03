@@ -267,7 +267,7 @@ public class CardFriendFragment extends Fragment {
             titleTextView = (TextView) v.findViewById(R.id.grouptxt);
             coverImageView = (ImageView) v.findViewById(R.id.groupimg);
             ImgTextView=(TextView) v.findViewById(R.id.txtnfirst);
-            chatIcon=(ImageView) v.findViewById(R.id.chaticon);
+            chatIcon=(ImageView) v.findViewById(R.id.chaticon1);
             coverImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
