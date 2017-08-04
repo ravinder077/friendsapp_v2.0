@@ -41,7 +41,7 @@
                         android:id="@+id/img"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/dp"
+
                         />
 
 
@@ -49,15 +49,14 @@
                         android:id="@+id/ProfileName"
                         android:layout_width="wrap_content"
                         android:layout_height="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_toRightOf="@+id/img"
-                        android:text="Rajan Sandha"
+                        android:text="Name show here"
                         android:textColor="@android:color/black"
                         android:textSize="15sp"
                         android:textStyle="bold"
 
-                        />
+                        android:layout_alignTop="@+id/pin"
+                        android:layout_alignLeft="@+id/timeicon"
+                        android:layout_alignStart="@+id/timeicon" />
 
                     <ImageView
                         android:id="@+id/timeicon"
@@ -167,7 +166,7 @@
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
                     android:maxHeight="420dp"
-                    android:src="@drawable/dp"/>
+                   />
 
 
 
