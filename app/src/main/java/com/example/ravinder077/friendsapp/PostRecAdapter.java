@@ -1,6 +1,5 @@
 package com.example.ravinder077.friendsapp;
 
-import android.graphics.Movie;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,14 +40,15 @@ public class PostRecAdapter  extends RecyclerView.Adapter<PostRecAdapter.MyViewH
         WallData wallData = postlist.get(position);
 
 
-        holder.profilepic.setImageResource(wallData.getProfilepic());
+        holder.profilepic.setImageBitmap(wallData.getBitprofilepic());
         holder.profilename.setText(wallData.getProfilename());
         holder.poststatus.setText(wallData.getPoststatus());
 
-        holder.postpic.setImageResource(wallData.getPostpic());
+        holder.postpic.setImageBitmap(wallData.getBitpostpic());
         holder.postlikes.setText(wallData.getPostlikes());
         holder.postcomments.setText(wallData.getPostcomments());
         holder.postshare.setText(wallData.getPostshare());
+        holder.posttime.setText(wallData.getPosttime());
     }
 
 
@@ -69,6 +69,7 @@ public class PostRecAdapter  extends RecyclerView.Adapter<PostRecAdapter.MyViewH
         public TextView postlikes;
         public TextView postcomments;
         public TextView postshare;
+        public TextView posttime;
         public MyViewHolder(View view) {
             super(view);
             profilepic = (CircleImageView) view.findViewById(R.id.img);
@@ -78,6 +79,7 @@ public class PostRecAdapter  extends RecyclerView.Adapter<PostRecAdapter.MyViewH
             postlikes=(TextView) view.findViewById(R.id.likecount);
             postcomments=(TextView) view.findViewById(R.id.commentcount);
             postshare=(TextView) view.findViewById(R.id.sharecount);
+            posttime=(TextView) view.findViewById(R.id.TimeStamp);
         }
     }
 

@@ -1,20 +1,65 @@
 package com.example.ravinder077.friendsapp;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by Chugh on 8/3/2017.
  */
 
 public class WallData {
 
-    private int profilepic;
+    private Bitmap bitpostpic;
+    private String postid;
+    private String profilepic;
     private String profilename;
     private String poststatus;
-    private int postpic;
+    private String postpic;
     private String postlikes;
     private String postcomments;
     private String postshare;
+    private String posttime;
+    private Bitmap bitprofilepic;
 
-    public WallData(int profilepic, String profilename, String poststatus,int postpic,String postlikes,String postcomments,String postshare) {
+
+    public Bitmap getBitprofilepic() {
+        return bitprofilepic;
+    }
+
+    public void setBitprofilepic(Bitmap bitprofilepic) {
+        this.bitprofilepic = bitprofilepic;
+    }
+
+
+    public String getPostid() {
+        return postid;
+    }
+
+    public void setPostid(String postid) {
+        this.postid = postid;
+    }
+
+
+    public String getPosttime() {
+        return posttime;
+    }
+
+    public void setPosttime(String posttime) {
+        this.posttime = posttime;
+    }
+
+
+
+    public Bitmap getBitpostpic() {
+        return bitpostpic;
+    }
+
+    public void setBitpostpic(Bitmap bitpostpic) {
+        this.bitpostpic = bitpostpic;
+    }
+
+
+
+   /* public WallData(int profilepic, String profilename, String poststatus,int postpic,String postlikes,String postcomments,String postshare) {
       this.profilepic=profilepic;
         this.profilename=profilename;
         this.poststatus=poststatus;
@@ -23,13 +68,13 @@ public class WallData {
         this.postcomments=postcomments;
         this.postshare=postshare;
 
-    }
+    }*/
 
-    public int getProfilepic() {
+    public String getProfilepic() {
         return profilepic;
     }
 
-    public void setProfilepic(int profilepic) {
+    public void setProfilepic(String profilepic) {
         this.profilepic = profilepic;
     }
 
@@ -49,11 +94,11 @@ public class WallData {
         this.poststatus = poststatus;
     }
 
-    public int getPostpic() {
+    public String getPostpic() {
         return postpic;
     }
 
-    public void setPostpic(int postpic) {
+    public void setPostpic(String postpic) {
         this.postpic = postpic;
     }
 
