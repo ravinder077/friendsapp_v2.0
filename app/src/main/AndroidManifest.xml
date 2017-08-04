@@ -44,6 +44,7 @@
         </activity>
         <service android:name=".PhotoService" />
 
+
         <intent-filter>
             <action android:name="android.intent.action.SEARCH" />
         </intent-filter>
@@ -66,7 +67,6 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS"/>
-
 
     </application>
 

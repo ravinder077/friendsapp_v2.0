@@ -121,8 +121,14 @@ public class login extends AppCompatActivity {
                     else {
 
 
-                        String mess = "Your One Time Password (OTP) for Direct Message is " + st + ". Only valid for 20 min.";
+                        //String mess = "Your One Time Password (OTP) for Direct Message is " + st + ". Only valid for 20 min.";
                         //sms.sendTextMessage(mobno, null,mess , null, null);
+                        OtpGen otpg1=new OtpGen();
+                        String numur2="http://omtii.com/mile/otpapi.php?mob="+mobno+"&otp="+st;
+
+                        System.err.println("numurl"+numur2);
+
+                        otpg1.execute(numur2);
                         Intent i = new Intent(v.getContext(), otp.class);
                         i.putExtra("sotp",st);
                         i.putExtra("mobno",mobno);

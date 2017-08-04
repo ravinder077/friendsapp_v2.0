@@ -9,7 +9,9 @@
         app:actionViewClass="android.support.v7.widget.SearchView"
         android:title="Search"/>
 
-    <item android:id="@+id/user" android:title="@string/action_user"></item>
+    <item android:id="@+id/refresh" android:title="Refresh"></item>
+
+    <item android:id="@+id/account" android:title="My Account"></item>
 
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />

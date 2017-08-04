@@ -16,8 +16,9 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
 
         switch (position) {
+
             case 0:
-                CardFragmentHome tab22 = new CardFragmentHome();
+                WallFragment tab22 = new WallFragment();
                 return tab22;
 
             case 1:

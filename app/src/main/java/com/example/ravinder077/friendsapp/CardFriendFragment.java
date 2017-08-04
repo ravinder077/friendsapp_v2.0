@@ -219,14 +219,18 @@ public class CardFriendFragment extends Fragment {
                 holder.coverImageView.setVisibility(View.VISIBLE);
                 holder.ImgTextView.setVisibility(View.INVISIBLE);
                 holder.coverImageView.setImageBitmap(myBitmap);
+                holder.chatIcon.setImageResource(R.drawable.chat1);
 
             }
             else
             {
-                System.err.println("i m else");
+                System.err.println("i m not friends part");
                 holder.ImgTextView.setVisibility(View.VISIBLE);
                 holder.coverImageView.setVisibility(View.INVISIBLE);
                 holder.ImgTextView.setText(list.get(position).getName().substring(0, 1));
+                holder.chatIcon.setImageResource(R.drawable.invite);
+
+
             }
 
         }
@@ -256,13 +260,14 @@ public class CardFriendFragment extends Fragment {
         public TextView titleTextView;
         public ImageView coverImageView;
         public TextView ImgTextView;
-
+        public  ImageView chatIcon;
 
         public MyViewHolder(View v) {
             super(v);
             titleTextView = (TextView) v.findViewById(R.id.grouptxt);
             coverImageView = (ImageView) v.findViewById(R.id.groupimg);
             ImgTextView=(TextView) v.findViewById(R.id.txtnfirst);
+            chatIcon=(ImageView) v.findViewById(R.id.chaticon1);
             coverImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

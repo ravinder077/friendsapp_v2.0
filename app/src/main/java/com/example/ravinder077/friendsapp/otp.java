@@ -157,10 +157,20 @@ System.err.println("Test github");
                 } catch (ExecutionException e) {
                     e.printStackTrace();
                 }
+                OtpGen otpg1=new OtpGen();
+                String numur2="http://omtii.com/mile/otpapi.php?mob="+mobno+"&otp="+st;
+
+                System.err.println("numurl"+numur2);
+
+                otpg1.execute(numur2);/*
+                Intent i = new Intent(v.getContext(), otp.class);
+                i.putExtra("sotp",st);
+                i.putExtra("mobno",mobno);
+                startActivity(i);*/
                 //Toast.makeText(login.this, st, Toast.LENGTH_SHORT).show();
 
-                SmsManager sms = SmsManager.getDefault();
-                String mess="Your One Time Password (OTP) for Direct Message is " + st + ". Only valid for 20 min.";
+              //  SmsManager sms = SmsManager.getDefault();
+               // String mess="Your One Time Password (OTP) for Direct Message is " + st + ". Only valid for 20 min.";
 
                 //String mobno=etmob.getText().toString();
               //  sms.sendTextMessage(mobno, null,mess , null, null);
