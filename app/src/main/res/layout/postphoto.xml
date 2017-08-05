@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    >
+
+    <ImageView
+
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/user"
+        android:id="@+id/imguser"
+        />
+
+    <Button
+        android:id="@+id/btntimg"
+        android:layout_width="315dp"
+        android:layout_height="wrap_content"
+        android:text="Take Photo"
+
+        android:layout_marginTop="21dp"
+        android:layout_below="@+id/imguser"
+        android:layout_alignLeft="@+id/btncimg"
+        android:layout_alignStart="@+id/btncimg" />
+
+    <Button
+        android:id="@+id/btncimg"
+        android:layout_marginLeft="20dp"
+        android:layout_width="315dp"
+        android:layout_height="wrap_content"
+        android:text="Choose Existing Photo"
+        android:layout_below="@+id/btntimg"
+        android:layout_centerInParent="true"
+        />
+    <Button
+        android:id="@+id/btnback"
+        android:layout_marginLeft="20dp"
+        android:layout_width="315dp"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/btncimg"
+        android:layout_centerInParent="true"
+        />
+</RelativeLayout>
