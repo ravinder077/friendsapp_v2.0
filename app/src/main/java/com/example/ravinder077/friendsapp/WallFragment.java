@@ -1,5 +1,6 @@
 package com.example.ravinder077.friendsapp;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,6 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -25,6 +28,8 @@ public class WallFragment extends Fragment {
     private RecyclerView MyRecyclerView;
     private PostRecAdapter adapter;
     private LinearLayoutManager mLayoutManager;
+
+    com.wangjie.rapidfloatingactionbutton.RapidFloatingActionButton postbtn;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -84,6 +89,15 @@ public class WallFragment extends Fragment {
         adapter = new PostRecAdapter(postlist);
         MyRecyclerView.setAdapter(adapter);
 
+        postbtn = (com.wangjie.rapidfloatingactionbutton.RapidFloatingActionButton) view.findViewById(R.id.activity_main_rfab);
+
+        postbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(),WallPost.class);
+                startActivity(i);
+            }
+        });
         return view;
     }
   /*  private void preparePostData() {
@@ -222,6 +236,7 @@ public class WallFragment extends Fragment {
             item.setPosttime(cd.getPosttime());
             item.setProfilename(cd.getProfilename());
             item.setPoststatus(cd.getPoststatus());
+
             //item.setPostVideo(cd.getPostVideo());
 
             postlist.add(item);

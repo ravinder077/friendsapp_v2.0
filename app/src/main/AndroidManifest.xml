@@ -42,6 +42,10 @@
 
         </activity>
 
+        <activity android:name=".WallPost">
+
+        </activity>
+
 
         <activity android:name=".Upload_Photo">
 
