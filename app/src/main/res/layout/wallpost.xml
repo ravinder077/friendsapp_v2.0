@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".MainActivity"
     android:orientation="vertical"
 
     >
@@ -42,7 +43,7 @@
                 android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rajan Sandha"
+                android:text="Name"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:textColor="@android:color/black"
@@ -139,6 +140,7 @@
 
 
         <ImageView
+            android:id="@+id/postimg"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/send"
@@ -146,6 +148,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
             />
+
     </RelativeLayout>
 
     <LinearLayout
@@ -160,6 +163,7 @@
 
         >
         <EditText
+            android:id="@+id/mindstatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="What's on your Mind?"
@@ -168,148 +172,138 @@
             android:typeface="sans"
             />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:divider="?android:dividerHorizontal"
-        android:showDividers="middle"
         android:layout_gravity="bottom"
+        android:divider="?android:dividerHorizontal"
         android:gravity="bottom"
-        >
+        android:orientation="vertical"
+        android:showDividers="middle">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
-            android:padding="8dp"
-            >
+            android:padding="8dp">
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="5dp"
-                android:src="@drawable/photoicon"
-                />
+                android:src="@drawable/photoicon" />
 
 
             <TextView
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="40dp"
+                android:gravity="center"
                 android:text="Photo"
-                android:gravity="center"
-                android:layout_marginLeft="40dp"
                 android:textSize="15sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
-            android:padding="8dp"
-            >
+            android:padding="8dp">
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="5dp"
-                android:src="@drawable/videoicon"
-                />
+                android:src="@drawable/videoicon" />
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="40dp"
+                android:gravity="center"
                 android:text="Video"
-                android:gravity="center"
-                android:layout_marginLeft="40dp"
                 android:textSize="15sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
-            android:padding="8dp"
-            >
+            android:padding="8dp">
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="5dp"
-                android:src="@drawable/checkin"
-                />
+                android:src="@drawable/checkin" />
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="40dp"
+                android:gravity="center"
                 android:text="Check In"
-                android:gravity="center"
-                android:layout_marginLeft="40dp"
                 android:textSize="15sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
-            android:padding="8dp"
-            >
+            android:padding="8dp">
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="5dp"
-                android:src="@drawable/tag"
-                />
+                android:src="@drawable/tag" />
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="40dp"
+                android:gravity="center"
                 android:text="Tag Friend"
-                android:gravity="center"
-                android:layout_marginLeft="40dp"
                 android:textSize="15sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
-            android:padding="8dp"
-            >
+            android:padding="8dp">
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="5dp"
-                android:src="@drawable/groupicon"
-                />
+                android:src="@drawable/groupicon" />
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Share to Group"
-                android:gravity="center"
                 android:layout_marginLeft="40dp"
+                android:gravity="center"
+                android:text="Share to Group"
                 android:textSize="15sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
 
         </LinearLayout>
