@@ -156,7 +156,7 @@ public class WallFragment extends Fragment {
                     String datetime = obj.getString("datetime");
                     String desc = obj.getString("desc");
                     String img = obj.getString("img");
-                 //   String video = obj.getString("video");
+                    String video = obj.getString("video");
                     String like = obj.getString("like");
                     String share = obj.getString("share");
                     String comment = obj.getString("comment");
@@ -170,7 +170,7 @@ public class WallFragment extends Fragment {
                     cc.setPosttime(datetime);
                     cc.setPoststatus(desc);
                     cc.setPostpic(img);
-                   // cc.setPostVideo(video);
+                    cc.setPostvdo(video);
                     cc.setPostlikes(like);
                     cc.setPostshare(share);
                     cc.setPostcomments(comment);
@@ -236,6 +236,7 @@ public class WallFragment extends Fragment {
             item.setPosttime(cd.getPosttime());
             item.setProfilename(cd.getProfilename());
             item.setPoststatus(cd.getPoststatus());
+            item.setPostvdo(cd.getPostvdo());
 
             //item.setPostVideo(cd.getPostVideo());
 

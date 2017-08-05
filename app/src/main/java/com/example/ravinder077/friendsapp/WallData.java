@@ -19,6 +19,16 @@ public class WallData {
     private String postshare;
     private String posttime;
     private Bitmap bitprofilepic;
+    private String postvdo;
+
+
+    public String getPostvdo() {
+        return postvdo;
+    }
+
+    public void setPostvdo(String postvdo) {
+        this.postvdo = postvdo;
+    }
 
 
     public Bitmap getBitprofilepic() {
