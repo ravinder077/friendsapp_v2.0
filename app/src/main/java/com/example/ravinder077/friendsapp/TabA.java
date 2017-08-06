@@ -1,5 +1,6 @@
 package com.example.ravinder077.friendsapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -41,17 +42,28 @@ public class TabA extends Fragment implements RapidFloatingActionContentLabelLis
     @Override
     public void onRFACItemLabelClick(int position, RFACLabelItem item) {
         rfabHelper.toggleContent();
-        int positionIndex = 6 - position;
-       Toast.makeText(getActivity(), "label", Toast.LENGTH_SHORT).show();
+        item.getLabel();
 
+        int positionIndex = 6 - position;
+       //Toast.makeText(getActivity(),  item.getLabel(), Toast.LENGTH_SHORT).show();
+        if(item.getLabel().toString().equals("New Page")) {
+            Intent i = new Intent(getContext(), ProfilePage.class);
+            startActivity(i);
+        }
 
     }
 
     @Override
     public void onRFACItemIconClick(int position, RFACLabelItem item) {
         rfabHelper.toggleContent();
-        Toast.makeText(getActivity(), "icon", Toast.LENGTH_SHORT).show();
+
+       // Toast.makeText(getActivity(), item.getLabel().toString(), Toast.LENGTH_SHORT).show();
         int positionIndex = 6 - position;
+
+        if(item.getLabel().toString().equals("New Page")) {
+            Intent i = new Intent(getContext(), ProfilePage.class);
+            startActivity(i);
+        }
 
        // Toast.makeText(getActivity(), position, Toast.LENGTH_SHORT).show();
     }

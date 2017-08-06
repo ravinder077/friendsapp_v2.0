@@ -53,7 +53,6 @@ public class ProfilePage extends ActionBarActivity
 
 
 
-    SQLiteDatabase mydata=openOrCreateDatabase("DM",MODE_PRIVATE,null);
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +81,7 @@ public class ProfilePage extends ActionBarActivity
 
 
                 Toast.makeText(ProfilePage.this, "contiune video", Toast.LENGTH_SHORT).show();
-
+                SQLiteDatabase mydata = openOrCreateDatabase("DM", MODE_PRIVATE, null);
                 Cursor resultSet = mydata.rawQuery("Select * from new_user", null);
                 resultSet.moveToFirst();
 
@@ -130,6 +129,11 @@ public class ProfilePage extends ActionBarActivity
 
                 System.out.println(resultSet1.getString(6));
                 System.out.println(resultSet1.getString(7));
+
+
+                System.out.println("");
+                Intent i = new Intent(v.getContext(), TabA.class);
+                startActivity(i);
             }
         });
 
