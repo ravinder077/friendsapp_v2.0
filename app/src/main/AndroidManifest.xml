@@ -29,6 +29,9 @@
         <activity android:name=".otp">
 
         </activity>
+        <activity android:name=".ProfilePage">
+
+        </activity>
 
         <activity android:name=".PostPhoto">
 
