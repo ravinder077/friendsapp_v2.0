@@ -67,7 +67,7 @@
 
 
         <ImageView
-            android:id="@+id/chaticon"
+            android:id="@+id/chaticon1"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:src="@drawable/invite"
