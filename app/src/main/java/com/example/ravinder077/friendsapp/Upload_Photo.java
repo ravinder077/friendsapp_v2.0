@@ -185,7 +185,11 @@ public class Upload_Photo extends AppCompatActivity {
                     String uname=intent.getStringExtra("uname");
 
 
+
+
                     SQLiteDatabase mydata=openOrCreateDatabase("DM",MODE_PRIVATE,null);
+
+                    mydata.execSQL("create table if not exists user_pages(id varchar,pagename varchar,pagedesc varchar,profilephoto varchar,coverphoto varchar,businesstype varchar,businessname varchar,businessurl varchar);");
 
                     mydata.execSQL("create table if not exists new_user(name varchar,mobile varchar,photo varchar);");
 

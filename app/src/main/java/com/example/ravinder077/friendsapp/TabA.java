@@ -42,8 +42,8 @@ public class TabA extends Fragment implements RapidFloatingActionContentLabelLis
     public void onRFACItemLabelClick(int position, RFACLabelItem item) {
         rfabHelper.toggleContent();
         int positionIndex = 6 - position;
-       // Toast.makeText(getActivity(), "label", Toast.LENGTH_SHORT).show();
-        popUp();
+       Toast.makeText(getActivity(), "label", Toast.LENGTH_SHORT).show();
+
 
     }
 
@@ -52,7 +52,7 @@ public class TabA extends Fragment implements RapidFloatingActionContentLabelLis
         rfabHelper.toggleContent();
         Toast.makeText(getActivity(), "icon", Toast.LENGTH_SHORT).show();
         int positionIndex = 6 - position;
-        popUp();
+
        // Toast.makeText(getActivity(), position, Toast.LENGTH_SHORT).show();
     }
 
@@ -117,45 +117,12 @@ public class TabA extends Fragment implements RapidFloatingActionContentLabelLis
 //rajan add floating action button ends
 
 
-    void popUp() {
-
-        LinearLayout createnew = (LinearLayout) getView().findViewById(R.id.showpopup);
-
-       /* createnew.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-*/
-                // get a reference to the already created main layout
-                CardView l1 = (CardView) getView().findViewById(R.id.grouppopup);
-                System.err.println("Entry in on click");
-
-                // inflate the layout of the grouppopup window
-                LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-                View popupView = inflater.inflate(R.layout.popup, null);
-
-                System.err.println("after inflate on click" + popupView);
-                // create the popup window
-                int width = LinearLayout.LayoutParams.WRAP_CONTENT;
-                int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-                boolean focusable = true; // lets taps outside the popup also dismiss it
-                final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
-        System.err.println("End of Popup ");
-
-                // show the popup window
-
-        //popupWindow.showAtLocation(l1, Gravity.CENTER, 0, 0);
 
 
-                // dismiss the popup window when touched
-                popupView.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        popupWindow.dismiss();
-                        return true;
-                    }
-                });
-            }
-      /*  });
 
-    }*/
+
+
+
+
+
 }
