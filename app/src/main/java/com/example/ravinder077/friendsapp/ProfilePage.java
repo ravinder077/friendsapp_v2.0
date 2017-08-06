@@ -132,8 +132,11 @@ public class ProfilePage extends ActionBarActivity
 
 
                 System.out.println("");
-                Intent i = new Intent(v.getContext(), TabA.class);
-                startActivity(i);
+                Bundle bundle = new Bundle();
+                bundle.putString("edttext", "From Activity");
+// set Fragmentclass Arguments
+                TabA fragobj = new TabA();
+                fragobj.setArguments(bundle);
             }
         });
 
