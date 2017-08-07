@@ -1,5 +1,6 @@
 package com.example.ravinder077.friendsapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -41,18 +42,29 @@ public class TabA extends Fragment implements RapidFloatingActionContentLabelLis
     @Override
     public void onRFACItemLabelClick(int position, RFACLabelItem item) {
         rfabHelper.toggleContent();
+        item.getLabel();
+
         int positionIndex = 6 - position;
-       // Toast.makeText(getActivity(), "label", Toast.LENGTH_SHORT).show();
-        popUp();
+       //Toast.makeText(getActivity(),  item.getLabel(), Toast.LENGTH_SHORT).show();
+        if(item.getLabel().toString().equals("New Page")) {
+            Intent i = new Intent(getContext(), ProfilePage.class);
+            startActivity(i);
+        }
 
     }
 
     @Override
     public void onRFACItemIconClick(int position, RFACLabelItem item) {
         rfabHelper.toggleContent();
-        Toast.makeText(getActivity(), "icon", Toast.LENGTH_SHORT).show();
+
+       // Toast.makeText(getActivity(), item.getLabel().toString(), Toast.LENGTH_SHORT).show();
         int positionIndex = 6 - position;
-        popUp();
+
+        if(item.getLabel().toString().equals("New Page")) {
+            Intent i = new Intent(getContext(), ProfilePage.class);
+            startActivity(i);
+        }
+
        // Toast.makeText(getActivity(), position, Toast.LENGTH_SHORT).show();
     }
 
@@ -117,45 +129,12 @@ public class TabA extends Fragment implements RapidFloatingActionContentLabelLis
 //rajan add floating action button ends
 
 
-    void popUp() {
-
-        LinearLayout createnew = (LinearLayout) getView().findViewById(R.id.showpopup);
-
-       /* createnew.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-*/
-                // get a reference to the already created main layout
-                CardView l1 = (CardView) getView().findViewById(R.id.grouppopup);
-                System.err.println("Entry in on click");
-
-                // inflate the layout of the grouppopup window
-                LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-                View popupView = inflater.inflate(R.layout.popup, null);
-
-                System.err.println("after inflate on click" + popupView);
-                // create the popup window
-                int width = LinearLayout.LayoutParams.WRAP_CONTENT;
-                int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-                boolean focusable = true; // lets taps outside the popup also dismiss it
-                final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
-        System.err.println("End of Popup ");
-
-                // show the popup window
-
-        //popupWindow.showAtLocation(l1, Gravity.CENTER, 0, 0);
 
 
-                // dismiss the popup window when touched
-                popupView.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        popupWindow.dismiss();
-                        return true;
-                    }
-                });
-            }
-      /*  });
 
-    }*/
+
+
+
+
+
 }
