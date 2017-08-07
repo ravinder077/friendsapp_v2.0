@@ -32,7 +32,7 @@ public class login extends AppCompatActivity {
 
 
         SQLiteDatabase mydata=openOrCreateDatabase("DM",MODE_PRIVATE,null);
-        mydata.execSQL("create table if not exists new_user(name varchar,mobile varchar,photo varchar);");
+        mydata.execSQL("create table if not exists new_user(name varchar,mobile varchar,photo blob);");
         Cursor resultSet = mydata.rawQuery("Select * from new_user", null);
         if(resultSet.getCount()>0) {
             resultSet.moveToFirst();

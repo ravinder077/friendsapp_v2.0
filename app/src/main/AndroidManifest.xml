@@ -18,7 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,9 +32,9 @@
 
         <activity android:name=".PostPhoto">
 
-        </activity>
+        </activity>;\
 
-        <activity android:name=".PostData">
+        <activity android:name=".MainActivity">
 
         </activity>
 
@@ -42,12 +42,14 @@
 
         </activity>
 
-        <activity android:name=".WallPost">
+        <activity android:name=".MainActivity">
 
         </activity>
 
-
         <activity android:name=".Upload_Photo">
+
+        </activity>
+        <activity android:name=".PostData">
 
         </activity>
         <service android:name=".PhotoService" />

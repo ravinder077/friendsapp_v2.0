@@ -27,6 +27,7 @@
             app:sl_cornerRadius="45dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ppic"
                 android:layout_width="55dp"
                 android:layout_height="55dp"
                 android:src="@drawable/dp"
@@ -151,14 +152,15 @@
 
     </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="190dp"
+        android:layout_height="150dp"
         android:layout_marginTop="8dp"
         android:divider="?android:dividerHorizontal"
         android:showDividers="middle"
         android:padding="8dp"
-        android:maxHeight="250dp"
+
         android:minHeight="190dp"
 
         >
@@ -171,6 +173,24 @@
             android:textSize="20sp"
             android:typeface="sans"
             />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/viewImage"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="5dp"
+
+            />
+
     </LinearLayout>
 
     <LinearLayout
@@ -183,6 +203,7 @@
         android:showDividers="middle">
 
         <LinearLayout
+            android:id="@+id/photo"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"

@@ -38,7 +38,7 @@ public class WallFragment extends Fragment {
 
         //new changess
 
-        Toast.makeText(getContext(), "CardFragmentHome", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(),"CardFragmentHome", Toast.LENGTH_SHORT).show();
 
         ArrayList<WallData> al = new ArrayList<WallData>();
 
@@ -94,7 +94,7 @@ public class WallFragment extends Fragment {
         postbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getContext(),WallPost.class);
+                Intent i = new Intent(getContext(),PostData.class);
                 startActivity(i);
             }
         });

@@ -187,7 +187,7 @@ public class Upload_Photo extends AppCompatActivity {
 
                     SQLiteDatabase mydata=openOrCreateDatabase("DM",MODE_PRIVATE,null);
 
-                    mydata.execSQL("create table if not exists new_user(name varchar,mobile varchar,photo varchar);");
+                    mydata.execSQL("create table if not exists new_user(name varchar,mobile varchar,photo blob);");
 
                     mydata.execSQL("insert into new_user values ('"+uname+"','"+mobno+"','"+b+"')");
 
