@@ -144,6 +144,7 @@ public class Upload_Photo extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
 
+        super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK) {
 
@@ -166,18 +167,10 @@ public class Upload_Photo extends AppCompatActivity {
 
                     ImageView picView = (ImageView)findViewById(R.id.imguser);
                     picView.setImageBitmap(b);
-                    super.onActivityResult(requestCode, resultCode, data);
 
                     // call to "saveToInternalStorage" function
-                    String saveimg = saveToInternalStorage(b);
+                   // String saveimg = saveToInternalStorage(b);
 
-                    FileUpload fup=new FileUpload();
-                    fup.execute(saveimg);
-                    System.err.println("imageName1"+saveimg);
-
-
-                    String fupget=fup.get();
-                    System.err.println("fupget" + fupget);
 
                     Intent intent=getIntent();
 
@@ -185,45 +178,59 @@ public class Upload_Photo extends AppCompatActivity {
                     String uname=intent.getStringExtra("uname");
 
 
-
-
                     SQLiteDatabase mydata=openOrCreateDatabase("DM",MODE_PRIVATE,null);
 
                     mydata.execSQL("create table if not exists user_pages(id varchar,pagename varchar,pagedesc varchar,profilephoto varchar,coverphoto varchar,businesstype varchar,businessname varchar,businessurl varchar);");
 
                     mydata.execSQL("create table if not exists new_user(name varchar,mobile varchar,photo varchar);");
-
                     mydata.execSQL("insert into new_user values ('"+uname+"','"+mobno+"','"+b+"')");
 
+                    FileUpload fup=new FileUpload(getApplicationContext(),mydata);
+                    fup.execute(b);
+                  //  System.err.println("imageName1"+b);
 
 
-                    OtpGen otpg=new OtpGen();
+                  //  String fupget=fup.get();
+                   // System.err.println("fupget" + fupget);
 
 
-                    String numurl="http://omtii.com/mile/savedata.php?uname="+uname+"&umob="+mobno+"&uimg="+fupget;
 
-                    System.err.println("save img"+saveimg);
 
-                    otpg.execute(numurl);
 
-                    System.err.println("numurl" + numurl);
 
+
+
+
+
+
+                 //   OtpGen otpg=new OtpGen();
+
+
+                 //   String numurl="http://omtii.com/mile/savedata.php?uname="+uname+"&umob="+mobno+"&uimg="+fupget;
+
+                 //
+                    //   System.err.println("save img"+saveimg);
+
+              //      otpg.execute(numurl);
+
+               //     System.err.println("numurl" + numurl);
+                 //*/
 
 
 
 
                     // Printing start
 
-                    Cursor resultSet = mydata.rawQuery("Select * from new_user", null);
-                    resultSet.moveToFirst();
+                 //   Cursor resultSet = mydata.rawQuery("Select * from new_user", null);
+                 //   resultSet.moveToFirst();
 
-                    String username = resultSet.getString(0);
-                    String mobileno = resultSet.getString(1);
-                    String photo = resultSet.getString(2);
+                //    String username = resultSet.getString(0);
+                 //   String mobileno = resultSet.getString(1);
+                //    String photo = resultSet.getString(2);
 
-                   System.err.println("user name " + username);
-                    System.err.println("mobileno" + mobileno);
-                    System.err.println("photo" + photo);
+                 //  System.err.println("user name " + username);
+                //    System.err.println("mobileno" + mobileno);
+                //    System.err.println("photo" + photo);
 
                     //printing end
             }
