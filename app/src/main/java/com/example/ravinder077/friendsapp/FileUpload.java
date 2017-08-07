@@ -32,6 +32,9 @@ public class FileUpload extends AsyncTask<Bitmap,String,String> {
     private Context mContext;
     private SQLiteDatabase msqLiteDatabase;
 
+    public FileUpload (Context context) {
+        mContext = context;
+    }
     public FileUpload (Context context,SQLiteDatabase sqLiteDatabase){
         mContext = context;
         msqLiteDatabase=sqLiteDatabase;

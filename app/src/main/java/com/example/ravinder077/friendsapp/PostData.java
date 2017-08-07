@@ -43,12 +43,13 @@ import static com.example.ravinder077.friendsapp.Upload_Photo.IMAGE_CAPTURE;
  */
 
 public class PostData extends AppCompatActivity {
-    ImageView viewImage=(ImageView) findViewById(R.id.viewImage);
 
+ImageView viewImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wallpost);
+        viewImage=(ImageView) findViewById(R.id.viewImage);
          System.err.println("Hello I m in POst Data");
 
         final TextView username=(TextView) findViewById(R.id.username);
@@ -62,8 +63,9 @@ public class PostData extends AppCompatActivity {
             String uname = resultSet.getString(0);
             System.err.println("Name" + uname);
             username.setText(uname);
-          /*  Bitmap ppic= BitmapFactory.decodeFile(resultSet.getString(2));
-            profilepic.setImageBitmap(ppic);*/
+
+            Bitmap ppic= BitmapFactory.decodeFile(resultSet.getString(2));
+            profilepic.setImageBitmap(ppic);
 
 
             System.err.println("Image Path"+resultSet.getString(2));
@@ -161,7 +163,9 @@ public class PostData extends AppCompatActivity {
 
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
+
             if (requestCode == 1) {
+                System.err.println("I m in if bitmap");
                 File f = new File(Environment.getExternalStorageDirectory().toString());
                 for (File temp : f.listFiles()) {
                     if (temp.getName().equals("temp.jpg")) {
@@ -170,14 +174,16 @@ public class PostData extends AppCompatActivity {
                     }
                 }
                 try {
-                    Bitmap bitmap;
+
                     BitmapFactory.Options bitmapOptions = new BitmapFactory.Options();
 
-                    bitmap = BitmapFactory.decodeFile(f.getAbsolutePath(),
+                    Bitmap  bitmap = BitmapFactory.decodeFile(f.getAbsolutePath(),
                             bitmapOptions);
 
                     viewImage.setImageBitmap(bitmap);
-
+                    System.err.println("Bitmap" + bitmap);
+                   /* FileUpload fup=new FileUpload(getApplicationContext());
+                    fup.execute(bitmap);*/
                     String path = android.os.Environment
                             .getExternalStorageDirectory()
                             + File.separator
@@ -187,7 +193,7 @@ public class PostData extends AppCompatActivity {
                     File file = new File(path, String.valueOf(System.currentTimeMillis()) + ".jpg");
                     try {
                         outFile = new FileOutputStream(file);
-                        bitmap.compress(Bitmap.CompressFormat.JPEG, 85, outFile);
+                      //  bitmap.compress(Bitmap.CompressFormat.JPEG, 85, outFile);
                         outFile.flush();
                         outFile.close();
                     } catch (FileNotFoundException e) {
@@ -201,7 +207,7 @@ public class PostData extends AppCompatActivity {
                     e.printStackTrace();
                 }
             } else if (requestCode == 2) {
-
+                System.err.println("I m in else bitmap");
                 Uri selectedImage = data.getData();
                 String[] filePath = { MediaStore.Images.Media.DATA };
                 Cursor c = getContentResolver().query(selectedImage,filePath, null, null, null);
@@ -212,7 +218,10 @@ public class PostData extends AppCompatActivity {
                 Bitmap thumbnail = (BitmapFactory.decodeFile(picturePath));
 
                 viewImage.setImageBitmap(thumbnail);
+              /*  FileUpload fup=new FileUpload(getApplicationContext());
+                fup.execute(thumbnail);*/
             }
+
         }
     }
 }
