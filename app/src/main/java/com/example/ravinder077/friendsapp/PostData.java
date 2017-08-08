@@ -44,7 +44,10 @@ import static com.example.ravinder077.friendsapp.Upload_Photo.IMAGE_CAPTURE;
 
 public class PostData extends AppCompatActivity {
 
-ImageView viewImage;
+private ImageView viewImage;
+private Bitmap  myBitmap;
+    private  String userid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,9 +64,10 @@ ImageView viewImage;
         if(resultSet.getCount()>0) {
             resultSet.moveToFirst();
             String uname = resultSet.getString(0);
+            String mno = resultSet.getString(1);
             System.err.println("Name" + uname);
             username.setText(uname);
-
+            userid=mno;
             Bitmap ppic= BitmapFactory.decodeFile(resultSet.getString(2));
             profilepic.setImageBitmap(ppic);
 
@@ -83,23 +87,9 @@ ImageView viewImage;
 
 
 
-                DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-                Date date = new Date();
-                String datetime=dateFormat.format(date);
 
-                OtpGen otpgen=new OtpGen();
-
-             //  System.err.println("query" + "http://omtii.com/mile/postwalldata.php?profilename="+username.getText()+"&status="+status.getText()+"&datetime="+datetime);
-            String url="http://omtii.com/mile/postwalldata.php?profilename="+username.getText()+"&status="+status.getText()+"&datetime="+datetime;
-                try
-                {
-                    String url2=parseUrl(url);
-                    otpgen.execute(url2);
-                }
-                catch (Exception e) {
-                    e.printStackTrace();
-                }
-
+              PostUpload postUpload=new PostUpload(userid,status.getText().toString(),getApplicationContext());
+                postUpload.execute(myBitmap);
 
 
 
@@ -107,6 +97,9 @@ ImageView viewImage;
 
             }
         });
+
+
+
         System.out.println("before click listener");
         LinearLayout photo=(LinearLayout) findViewById(R.id.photo);
         photo.setOnClickListener(new View.OnClickListener() {
@@ -179,7 +172,7 @@ ImageView viewImage;
 
                     Bitmap  bitmap = BitmapFactory.decodeFile(f.getAbsolutePath(),
                             bitmapOptions);
-
+                    myBitmap=bitmap;
                     viewImage.setImageBitmap(bitmap);
                     System.err.println("Bitmap" + bitmap);
                    /* FileUpload fup=new FileUpload(getApplicationContext());
@@ -216,7 +209,7 @@ ImageView viewImage;
                 String picturePath = c.getString(columnIndex);
                 c.close();
                 Bitmap thumbnail = (BitmapFactory.decodeFile(picturePath));
-
+                myBitmap=thumbnail;
                 viewImage.setImageBitmap(thumbnail);
               /*  FileUpload fup=new FileUpload(getApplicationContext());
                 fup.execute(thumbnail);*/
