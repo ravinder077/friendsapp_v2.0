@@ -94,17 +94,20 @@ public class ProfilePage extends ActionBarActivity
                 System.err.println("photo" + photo);
 
                 EditText editText1=(EditText)findViewById(R.id.user_profile_name);
-                EditText editText2=(EditText)findViewById(R.id.user_profile_short_bio);
-                EditText editText3=(EditText)findViewById(R.id.btype);
-                EditText editText4=(EditText)findViewById(R.id.bname);
-                EditText editText5=(EditText)findViewById(R.id.burl);
+
+                Intent i = new Intent (getApplicationContext(),Pagecatagory.class);
+                startActivity(i);
+                //EditText editText2=(EditText)findViewById(R.id.user_profile_short_bio);
+                //EditText editText3=(EditText)findViewById(R.id.btype);
+                //EditText editText4=(EditText)findViewById(R.id.bname);
+                //EditText editText5=(EditText)findViewById(R.id.burl);
 
 
 
 
 
 
-                String name= editText1.getText().toString();
+             /*   String name= editText1.getText().toString();
                 String desc=editText2.getText().toString();
                 String photo1=null;
                 String photo2=null;
@@ -112,11 +115,11 @@ public class ProfilePage extends ActionBarActivity
                 String bname=editText4.getText().toString();
                 String burl=editText4.getText().toString();
                 String mno=mobileno;
+*/
+              //  mydata.execSQL("insert into user_pages values ('"+mno+"','"+name+"','"+desc+"','"+photo1+"','"+photo2+"','"+btype+"','"+bname+"','"+burl+"')");
 
-                mydata.execSQL("insert into user_pages values ('"+mno+"','"+name+"','"+desc+"','"+photo1+"','"+photo2+"','"+btype+"','"+bname+"','"+burl+"')");
 
-
-
+/*
                 Cursor resultSet1 = mydata.rawQuery("Select * from user_pages", null);
                 resultSet1.moveToFirst();
 
@@ -134,9 +137,9 @@ public class ProfilePage extends ActionBarActivity
                 System.out.println("");
                 Bundle bundle = new Bundle();
                 bundle.putString("edttext", "From Activity");
-// set Fragmentclass Arguments
+                  // set Fragmentclass Arguments
                 TabA fragobj = new TabA();
-                fragobj.setArguments(bundle);
+                fragobj.setArguments(bundle);*/
             }
         });
 

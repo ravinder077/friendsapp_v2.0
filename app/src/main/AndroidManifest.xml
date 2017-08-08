@@ -31,6 +31,9 @@
         <activity android:name=".otp">
 
         </activity>
+        <activity android:name=".Pagecatagory">
+
+        </activity>
         <activity android:name=".ProfilePage">
 
         </activity>
