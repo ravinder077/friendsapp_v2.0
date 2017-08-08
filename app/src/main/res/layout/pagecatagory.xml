@@ -32,6 +32,7 @@
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:gravity="center"
+            android:clickable="true"
             android:orientation="vertical"
             android:background="@android:color/holo_red_light"
             >
@@ -61,6 +62,7 @@
                 android:layout_height="160dp"
                 android:layout_marginLeft="20dp"
                 android:gravity="center"
+                android:clickable="true"
                 android:orientation="vertical"
                 android:layout_toRightOf="@id/cata1"
                 android:background="@android:color/holo_blue_dark"
@@ -90,6 +92,7 @@
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:gravity="center"
+            android:clickable="true"
             android:orientation="vertical"
             android:layout_below="@id/cata1"
             android:layout_marginTop="20dp"
@@ -120,6 +123,7 @@
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:gravity="center"
+            android:clickable="true"
             android:orientation="vertical"
             android:background="@android:color/holo_red_light"
 
@@ -149,6 +153,7 @@
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:gravity="center"
+            android:clickable="true"
             android:orientation="vertical"
             android:layout_below="@id/cata3"
             android:layout_marginTop="20dp"
@@ -160,7 +165,7 @@
                 android:id="@+id/imageView3"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@drawable/pagecataBrand" />
+                android:src="@drawable/pagecatabrand" />
 
             <TextView
                 android:layout_width="120dp"
@@ -179,6 +184,7 @@
             android:layout_height="160dp"
             android:layout_marginLeft="20dp"
             android:gravity="center"
+            android:clickable="true"
             android:orientation="vertical"
             android:layout_toRightOf="@id/cata5"
             android:layout_below="@id/cata4"
