@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -45,6 +46,8 @@ import static com.example.ravinder077.friendsapp.Upload_Photo.IMAGE_CAPTURE;
 public class PostData extends AppCompatActivity {
 
 ImageView viewImage;
+    Uri viduri;
+   private static final int VIDEO_CAPTURE = 101;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,6 +110,33 @@ ImageView viewImage;
 
             }
         });
+
+
+        TextView postvideo=(TextView) findViewById(R.id.postvideo);
+        postvideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                VideoView postvid=(VideoView) findViewById(R.id.postvid);
+                Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+                startActivityForResult(intent, VIDEO_CAPTURE);
+
+                File mediaFile =
+                        new File(Environment.getExternalStorageDirectory().getAbsolutePath()
+                                + "/myvideo.mp4");
+
+                Intent intent2 = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+
+                Uri videoUri = Uri.fromFile(mediaFile);
+                viduri=videoUri;
+                intent2.putExtra(MediaStore.EXTRA_OUTPUT, videoUri);
+                startActivityForResult(intent2, VIDEO_CAPTURE);
+
+
+            }
+
+        });
+
         System.out.println("before click listener");
         LinearLayout photo=(LinearLayout) findViewById(R.id.photo);
         photo.setOnClickListener(new View.OnClickListener() {
@@ -223,6 +253,22 @@ ImageView viewImage;
             }
 
         }
+        if (requestCode == VIDEO_CAPTURE) {
+            if (resultCode == RESULT_OK) {
+                Toast.makeText(this, "Video saved to:\n" +
+                        data.getData(), Toast.LENGTH_LONG).show();
+                VideoView postvid=(VideoView) findViewById(R.id.postvid);
+                postvid.setVideoURI(viduri);
+                postvid.start();
+            } else if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(this, "Video recording cancelled.",
+                        Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "Failed to record video",
+                        Toast.LENGTH_LONG).show();
+            }
+        }
     }
+
 }
 
