@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose Page Catagory"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:padding="7dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:background="@drawable/profile_circular_border_imageview"
+
+        />
+
+    <!-- Grid Starts Here -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        >
+
+        <LinearLayout
+            android:id="@+id/cata1"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:gravity="center"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:background="@android:color/holo_red_light"
+            >
+
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/pagecatapersonal"
+                />
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Personal "
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                />
+
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cata2"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/cata1"
+                android:background="@android:color/holo_blue_dark"
+
+                >
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/pagecatabusiness" />
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="Business"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    />
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cata3"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:gravity="center"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:layout_below="@id/cata1"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/holo_blue_dark"
+
+            >
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/pagecataeducation" />
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Education"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cata4"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:gravity="center"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:background="@android:color/holo_red_light"
+
+            android:layout_alignTop="@+id/cata3"
+            android:layout_alignLeft="@+id/cata2"
+            android:layout_alignStart="@+id/cata2">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/pagecataentertainment"
+                />
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Entertainment"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cata5"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:gravity="center"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:layout_below="@id/cata3"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/holo_red_light"
+
+            >
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/pagecatabrand" />
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Brand"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cata6"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:layout_toRightOf="@id/cata5"
+            android:layout_below="@id/cata4"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/holo_blue_dark"
+
+            >
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/pagecataother"
+                />
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Other"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- Grid Ends Here-->
+
+</LinearLayout>
