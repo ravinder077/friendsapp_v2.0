@@ -41,62 +41,34 @@
             android:layout_below="@+id/header_cover_image"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="-60dp"
-            android:background="@drawable/pageprofile"
+            android:src="@drawable/pageprofile"
             android:elevation="5dp"
-            android:padding="20dp"
+            android:background=""
             android:scaleType="centerCrop" />
 
         <RelativeLayout
             android:id="@+id/profile_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="170dp"
             android:layout_below="@+id/header_cover_image"
-            android:background="#ebca0707"
+            android:background="@android:color/holo_red_light"
             android:elevation="4dp"
             android:paddingBottom="24dp">
 
 
-            <ImageView
-                android:id="@+id/add_friend"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_toLeftOf="@+id/drop_down_option_menu"
-                android:src="@drawable/accountplus" />
-
-            <ImageView
-                android:id="@+id/drop_down_option_menu"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/dotsvertical" />
 
             <EditText
                 android:id="@+id/user_profile_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="76dp"
                 android:hint="Page Name"
                 android:textColor="#fff"
-                android:textColorHint="#fff"
+                android:layout_centerVertical="true"
+                android:textColorHint="#c6ffffff"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/user_profile_short_bio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/user_profile_name"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="12dp"
-                android:hint="Page description"
-                android:textColorHint="#fff"
-                android:textColor="#fff"
-                android:textSize="14sp" />
         </RelativeLayout>
 
 
@@ -109,48 +81,13 @@
 
 
 
-            <EditText
-                android:id="@+id/btype"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="#fff"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:hint="Bussiness Type" />
-
-            <EditText
-                android:id="@+id/bname"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_marginBottom="3dp"
-                android:layout_marginTop="3dp"
-                android:background="#fff"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:hint="Bussiness Name" />
-
-            <EditText
-                android:id="@+id/burl"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="#fff"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:hint="Bussiness Website url" />
-
 
             <Button
                 android:id="@+id/submit_action"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:background="#ebca0707"
+                android:background="@android:color/holo_blue_dark"
                 android:clickable="true"
                 android:elevation="4dp"
                 android:padding="20dp"
@@ -162,12 +99,11 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:background="#ebca0707"
+                android:background="@android:color/holo_green_dark"
                 android:clickable="true"
                 android:elevation="4dp"
                 android:padding="20dp"
                 android:textColor="#fff"
-
                 android:text="Back"/>
 
 
