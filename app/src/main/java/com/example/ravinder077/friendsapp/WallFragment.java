@@ -152,6 +152,7 @@ public class WallFragment extends Fragment {
                     String id = obj.getString("id");
 
                     String name = obj.getString("name");
+
                     String profileimg = obj.getString("profileimg");
                     String datetime = obj.getString("datetime");
                     String desc = obj.getString("desc");
