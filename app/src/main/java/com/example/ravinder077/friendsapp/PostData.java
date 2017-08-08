@@ -45,7 +45,7 @@ import static com.example.ravinder077.friendsapp.Upload_Photo.IMAGE_CAPTURE;
 
 public class PostData extends AppCompatActivity {
 
-ImageView viewImage;
+
     Uri viduri;
    private static final int VIDEO_CAPTURE = 101;
 private ImageView viewImage;
