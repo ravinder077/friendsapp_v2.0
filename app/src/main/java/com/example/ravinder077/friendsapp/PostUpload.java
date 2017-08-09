@@ -20,8 +20,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -46,6 +48,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -311,14 +314,17 @@ public class PostUpload extends AsyncTask<Bitmap,String,String> {
 
 
         //  System.err.println("query" + "http://omtii.com/mile/postwalldata.php?profilename="+username.getText()+"&status="+status.getText()+"&datetime="+datetime);
-        String numurl="http://omtii.com/mile/postwalldata.php?profilename="+userid+"&status="+status+"&imgpath="+st;
-
-
-
+        String nurl="http://omtii.com/mile/postwalldata.php?profilename="+userid+"&status="+status+"&imgpath="+st;
+        String numurl= null;
+        try {
+            numurl = parseUrl(nurl);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
         //
-        //   System.err.println("save img"+saveimg);
+       // System.err.println("save img"+saveimg);
 
         //  otpg.execute(numurl);
 
@@ -362,7 +368,11 @@ public class PostUpload extends AsyncTask<Bitmap,String,String> {
         return st;
     }
 
-
+    public static String parseUrl(String surl) throws Exception
+    {
+        URL u = new URL(surl);
+        return new URI(u.getProtocol(), u.getAuthority(), u.getPath(), u.getQuery(), u.getRef()).toString();
+    }
 
 
     private String saveToInternalStorage(Bitmap bitmapImage){

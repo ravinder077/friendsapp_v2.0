@@ -83,7 +83,7 @@ private Bitmap  myBitmap;
         btnclick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              Toast.makeText(PostData.this, "Hello ", Toast.LENGTH_SHORT).show();
+
 
 
                 EditText status=(EditText) findViewById(R.id.mindstatus);
@@ -96,9 +96,10 @@ private Bitmap  myBitmap;
                 postUpload.execute(myBitmap);
 
 
-
-
-
+                Toast.makeText(PostData.this, "Post Submitted ", Toast.LENGTH_SHORT).show();
+              /*  Intent intent=new Intent(getApplicationContext(),WallFragment.class);
+                startActivity(intent);
+*/
             }
         });
 
