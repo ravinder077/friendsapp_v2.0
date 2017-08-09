@@ -102,11 +102,43 @@ private Bitmap  myBitmap;
             }
         });
 
+        //ClickListener on Checkin Layout Starts
+
+        LinearLayout postcheckin = (LinearLayout) findViewById(R.id.checkin);
+        postcheckin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(PostData.this, "Not setted up configure me in PostData.java file", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //ClickListener on Checkin Layout Ends
 
 
+        //ClickListener on tagfriend Layout Starts
+        LinearLayout tagfriend = (LinearLayout) findViewById(R.id.tagfriend);
+        tagfriend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(PostData.this, "Under Working in PostData.java", Toast.LENGTH_SHORT).show();
+            }
+        });
+        //ClickListener on Tagfriend Layout Ends
+
+        //ClickListener on SharetoGroup Layout Starts
+        LinearLayout sharetogroup = (LinearLayout) findViewById(R.id.sharetogroup);
+        sharetogroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(PostData.this, "Under Working in PostData.java", Toast.LENGTH_SHORT).show();
+            }
+        });
+        //ClickListener on SharetoGroup Layout Ends
 
 
-        TextView postvideo=(TextView) findViewById(R.id.postvideo);
+        //ClickListener on Video Layout Starts
+
+        LinearLayout postvideo=(LinearLayout) findViewById(R.id.postvideo);
         postvideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,6 +162,10 @@ private Bitmap  myBitmap;
             }
 
         });
+        //ClickListener on Video Layout Ends
+
+
+        //ClickListener on Photo Layout Starts
 
         System.out.println("before click listener");
         LinearLayout photo=(LinearLayout) findViewById(R.id.photo);
@@ -143,6 +179,7 @@ private Bitmap  myBitmap;
             }
         });
 
+        //ClickListener on Photo Layout Ends
 
 
     }

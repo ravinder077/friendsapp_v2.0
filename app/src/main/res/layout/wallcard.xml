@@ -159,6 +159,7 @@
                 android:id="@+id/imglayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:maxHeight="200dp"
                 >
 
 
@@ -177,9 +178,12 @@
 
                <VideoView
                    android:id="@+id/video"
-                   android:layout_width="match_parent"
-                   android:layout_height="200dp"
-
+                   android:layout_alignParentTop="true"
+                   android:layout_alignParentLeft="true"
+                   android:layout_alignParentRight="true"
+                   android:layout_width="fill_parent"
+                   android:layout_height="wrap_content"
+                   android:maxHeight="420dp"
                    />
 
             </RelativeLayout>

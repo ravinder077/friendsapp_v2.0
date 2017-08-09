@@ -257,6 +257,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/postvideo"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
@@ -270,7 +271,6 @@
 
 
             <TextView
-                android:id="@+id/postvideo"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="40dp"
@@ -283,6 +283,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/checkin"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
@@ -308,6 +309,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/tagfriend"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
@@ -333,6 +335,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/sharetogroup"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
