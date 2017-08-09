@@ -25,6 +25,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -47,10 +48,10 @@ public class ProfilePage extends ActionBarActivity
     private static final int REQUEST_CAMERA = 1;
     private static final int SELECT_FILE = 2;
     private int PROFILE_PIC_COUNT = 0;
-    private String coverPhoto=null;
-    private String profilePhoto=null;
+    private Bitmap coverPhoto=null;
+    private Bitmap profilePhoto=null;
 
-
+     private String pageName;
 
 
 
@@ -93,9 +94,18 @@ public class ProfilePage extends ActionBarActivity
                 System.err.println("mobileno" + mobileno);
                 System.err.println("photo" + photo);
 
+
+
                 EditText editText1=(EditText)findViewById(R.id.user_profile_name);
+                ByteArrayOutputStream bs=new ByteArrayOutputStream();
+                profilePhoto.compress(Bitmap.CompressFormat.PNG,100,bs);
+
 
                 Intent i = new Intent (getApplicationContext(),Pagecatagory.class);
+                i.putExtra("name",editText1.getText().toString());
+                i.putExtra("profile",saveToInternalStorage(profilePhoto));
+                coverPhoto.compress(Bitmap.CompressFormat.PNG,100,bs);
+                i.putExtra("cover",saveToInternalStorage(coverPhoto));
                 startActivity(i);
                 //EditText editText2=(EditText)findViewById(R.id.user_profile_short_bio);
                 //EditText editText3=(EditText)findViewById(R.id.btype);
@@ -270,12 +280,13 @@ public class ProfilePage extends ActionBarActivity
                     if(PROFILE_PIC_COUNT==2) {
                         ImageView picView = (ImageView) findViewById(R.id.header_cover_image);
 
-
+                        coverPhoto=b;
                         picView.setImageBitmap(b);
                         //coverPhoto=
                     }
                     else if(PROFILE_PIC_COUNT==1)
                     {
+                        profilePhoto=b;
                         CircleImageView circleImageView=(CircleImageView)findViewById(R.id.user_profile_photo);
                         circleImageView.setImageBitmap(b);
                     }
