@@ -1,23 +1,22 @@
 package com.example.ravinder077.friendsapp;
 
 
-import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -30,14 +29,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.*;
-import static com.example.ravinder077.friendsapp.Upload_Photo.IMAGE_CAPTURE;
 
 /**
  * Created by Chugh on 8/4/2017.
@@ -51,6 +44,7 @@ public class PostData extends AppCompatActivity {
 private ImageView viewImage;
 private Bitmap  myBitmap;
     private  String userid;
+    private int MY_PERMISSIONS_REQUEST_LOCATION;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +103,59 @@ private Bitmap  myBitmap;
         postcheckin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(PostData.this, "Not setted up configure me in PostData.java file", Toast.LENGTH_SHORT).show();
+                // create class object
+               GpsTracker gps ;
+
+                // Prompt for camera Permission start
+
+                if (ContextCompat.checkSelfPermission(PostData.this,
+                        android.Manifest.permission.ACCESS_FINE_LOCATION)
+                        != PackageManager.PERMISSION_GRANTED) {
+
+                    System.err.println("Grant Permission outer if");
+
+                    // Should we show an explanation?
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(PostData.this,
+                            android.Manifest.permission.ACCESS_FINE_LOCATION)) {
+                        System.err.println("Grant Permission inner if");
+                        // Show an explanation to the user *asynchronously* -- don't block
+                        // this thread waiting for the user's response! After the user
+                        // sees the explanation, try again to request the permission.
+
+                    }
+
+
+                    else {
+
+                        // No explanation needed, we can request the permission.
+                        System.err.println("Grant Permission Else part");
+                        ActivityCompat.requestPermissions(PostData.this,
+                                new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                                MY_PERMISSIONS_REQUEST_LOCATION);
+
+
+                    }
+                }
+                // Prompt for camera Permission end
+
+                // create class object
+
+                gps = new GpsTracker(PostData.this);
+
+                // check if GPS enabled
+                if(gps.canGetLocation()){
+
+                    double latitude = gps.getLatitude();
+                    double longitude = gps.getLongitude();
+
+                    // \n is for new line
+                    Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
+                }else{
+                    // can't get location
+                    // GPS or Network is not enabled
+                    // Ask user to enable GPS/network in settings
+                    gps.showSettingsAlert();
+                }
             }
         });
 
