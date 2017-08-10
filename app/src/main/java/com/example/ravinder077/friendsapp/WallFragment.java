@@ -1,6 +1,8 @@
 package com.example.ravinder077.friendsapp;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -23,6 +25,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class WallFragment extends Fragment {
     private List<WallData> postlist = new ArrayList<>();
     private RecyclerView MyRecyclerView;
@@ -43,9 +47,17 @@ public class WallFragment extends Fragment {
         ArrayList<WallData> al = new ArrayList<WallData>();
 
         // WallData cdg=new WallData();
+        String mno=null;
+        SQLiteDatabase mydata=getActivity().openOrCreateDatabase("DM",MODE_PRIVATE,null);
+        Cursor resultSet = mydata.rawQuery("Select * from new_user", null);
+        if(resultSet.getCount()>0) {
+            resultSet.moveToFirst();
+            //String uname = resultSet.getString(0);
+            mno = resultSet.getString(1);
+        }
 
         OtpGen otpgen =new OtpGen();
-        otpgen.execute("http://omtii.com/mile/text.php");
+        otpgen.execute("http://omtii.com/mile/text.php?mobno="+mno);
         try {
             System.err.println("Photo cc" + otpgen.get());
         } catch (InterruptedException e) {
