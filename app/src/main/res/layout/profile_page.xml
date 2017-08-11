@@ -30,8 +30,9 @@
         <ImageView
             android:id="@+id/header_cover_image"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
             android:src="@drawable/pagecoverphoto" />
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -43,15 +44,17 @@
             android:layout_marginTop="-60dp"
             android:src="@drawable/pageprofile"
             android:elevation="5dp"
+            app:civ_border_overlay="true"
+            app:civ_border_color="@android:color/white"
+            app:civ_border_width="2dp"
             android:scaleType="centerCrop" />
 
         <RelativeLayout
             android:id="@+id/profile_layout"
             android:layout_width="match_parent"
-            android:layout_height="170dp"
+            android:layout_height="190dp"
             android:layout_below="@+id/header_cover_image"
             android:background="@android:color/holo_red_light"
-            android:elevation="4dp"
             android:paddingBottom="24dp">
 
 

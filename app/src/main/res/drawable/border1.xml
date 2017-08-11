@@ -5,4 +5,12 @@
         android:width="1dip"
         android:color="@android:color/darker_gray"
         />
+    <corners
+        android:bottomLeftRadius="15dp"
+        android:bottomRightRadius="15dp"
+        android:topRightRadius="15dp"
+        />
+    <solid
+        android:color="@android:color/white"
+        />
 </shape>
