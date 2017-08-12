@@ -32,6 +32,9 @@
         <activity android:name=".Pagecatagory">
 
         </activity>
+        <activity android:name=".GroupCreate">
+
+        </activity>
         <activity android:name=".PageDescription">
 
         </activity>

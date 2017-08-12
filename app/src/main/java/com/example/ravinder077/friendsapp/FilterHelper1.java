@@ -8,19 +8,19 @@ import java.util.ArrayList;
  * Created by Chugh on 7/12/2017.
  */
 
-public class FilterHelper extends Filter {
+public class FilterHelper1 extends Filter {
 
     static ArrayList<FriendData> clist;
-    static CardFriendFragment.MyAdapter adapter;
+    static GroupCreate.MyAdapter adapter;
+   
 
-
-    public static FilterHelper newInstance(ArrayList<FriendData> clist, CardFriendFragment.MyAdapter adapter)
+    public static FilterHelper1 newInstance(ArrayList<FriendData> clist, GroupCreate.MyAdapter adapter)
     {
-        FilterHelper.adapter=adapter;
-        FilterHelper.clist=clist;
-        return new FilterHelper();
+        FilterHelper1.adapter=adapter;
+        FilterHelper1.clist=clist;
+        return new FilterHelper1();
     }
-
+   
 
 
 
