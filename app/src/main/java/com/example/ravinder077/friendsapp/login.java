@@ -131,6 +131,7 @@ public class login extends AppCompatActivity {
                         System.err.println("numurl"+numur2);
 
                         otpg1.execute(numur2);*/
+
                         Intent i = new Intent(v.getContext(), otp.class);
                         i.putExtra("sotp",st);
                         i.putExtra("mobno",mobno);

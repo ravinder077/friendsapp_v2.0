@@ -13,7 +13,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -38,6 +41,7 @@ public class WallFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
 
         //new changess
@@ -100,6 +104,8 @@ public class WallFragment extends Fragment {
        // preparePostData();
         adapter = new PostRecAdapter(postlist);
         MyRecyclerView.setAdapter(adapter);
+
+
 
         postbtn = (com.wangjie.rapidfloatingactionbutton.RapidFloatingActionButton) view.findViewById(R.id.activity_main_rfab);
 
