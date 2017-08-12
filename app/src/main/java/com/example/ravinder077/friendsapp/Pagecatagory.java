@@ -44,13 +44,15 @@ public class Pagecatagory extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(Pagecatagory.this, "Personal", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent (getApplicationContext(),PageDescription.class);
+                startActivity(i);
             }
         });
 
         business.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Pagecatagory.this, "Personal", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Pagecatagory.this, "Business", Toast.LENGTH_SHORT).show();
             }
         });
         education.setOnClickListener(new View.OnClickListener() {
