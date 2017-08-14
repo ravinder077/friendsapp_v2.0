@@ -8,6 +8,24 @@
     android:divider="?android:dividerVertical"
     android:showDividers="middle"
     >
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleTextColor="@android:color/white"
+
+        android:background="@android:color/holo_green_dark">
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="?android:dividerVertical"
+        android:showDividers="middle"
+        android:orientation="vertical">
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,8 +54,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1/256 added"
+        android:text="0/256 added"
         />
+    </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/groupaddcontacts"
         android:layout_width="match_parent"
