@@ -155,6 +155,8 @@ public class User_Name extends AppCompatActivity {
                 list.add(userContact);
 
             }
+            mydata.close();
+            phones.close();
 
 
             String request = new Gson().toJson(list);
@@ -210,6 +212,7 @@ public class User_Name extends AppCompatActivity {
 
             //System.err.println(JsonResponse);
             return json;
+
         }
     }
 
