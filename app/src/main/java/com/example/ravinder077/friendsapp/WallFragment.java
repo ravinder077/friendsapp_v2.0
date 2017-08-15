@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import static android.R.id.list;
 import static android.content.Context.MODE_PRIVATE;
 
 public class WallFragment extends Fragment {
@@ -35,7 +36,8 @@ public class WallFragment extends Fragment {
     private RecyclerView MyRecyclerView;
     private PostRecAdapter adapter;
     private LinearLayoutManager mLayoutManager;
-
+     String mno=null;
+    String jsonphoto=null;
     com.wangjie.rapidfloatingactionbutton.RapidFloatingActionButton postbtn;
 
     @Override
@@ -51,7 +53,7 @@ public class WallFragment extends Fragment {
         ArrayList<WallData> al = new ArrayList<WallData>();
 
         // WallData cdg=new WallData();
-        String mno=null;
+
         SQLiteDatabase mydata=getActivity().openOrCreateDatabase("DM",MODE_PRIVATE,null);
         Cursor resultSet = mydata.rawQuery("Select * from new_user", null);
         if(resultSet.getCount()>0) {
@@ -70,7 +72,7 @@ public class WallFragment extends Fragment {
             e.printStackTrace();
         }
 
-        String jsonphoto=null;
+
         try {
             jsonphoto= otpgen.get();
         } catch (InterruptedException e) {
@@ -93,11 +95,13 @@ public class WallFragment extends Fragment {
 
     }
 
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.wall_recycle, container, false);
 
         // Replace 'android.R.id.list' with the 'id' of your RecyclerView
         MyRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+
         mLayoutManager = new LinearLayoutManager(this.getActivity());
 
         MyRecyclerView.setLayoutManager(mLayoutManager);
@@ -105,7 +109,43 @@ public class WallFragment extends Fragment {
         adapter = new PostRecAdapter(postlist);
         MyRecyclerView.setAdapter(adapter);
 
+        MyRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                Toast.makeText(getContext(), "Scrolling", Toast.LENGTH_SHORT).show();
+             OtpGen otpgen =new OtpGen();
+               otpgen.execute("http://omtii.com/mile/nextrows.php?mobno="+mno);
 
+               try {
+                   System.err.println("Photo cc" + otpgen.get());
+               } catch (InterruptedException e) {
+                   e.printStackTrace();
+               } catch (ExecutionException e) {
+                   e.printStackTrace();
+               }
+
+
+               try {
+                   jsonphoto= otpgen.get();
+               } catch (InterruptedException e) {
+                   e.printStackTrace();
+               } catch (ExecutionException e) {
+                   e.printStackTrace();
+               }
+
+
+               try {
+                   ArrayList<WallData> photono=  jsonToMap(jsonphoto);
+                   initializeList(photono);
+
+               } catch (JSONException e) {
+                   e.printStackTrace();
+               }
+                adapter.notifyDataSetChanged();
+
+            }
+        });
 
         postbtn = (com.wangjie.rapidfloatingactionbutton.RapidFloatingActionButton) view.findViewById(R.id.activity_main_rfab);
 
@@ -118,6 +158,7 @@ public class WallFragment extends Fragment {
         });
         return view;
     }
+
   /*  private void preparePostData() {
         WallData post = new WallData(R.drawable.dp,"Rohit","Coming Soon",R.drawable.great_wall_of_china,"10","25","30");
         postlist.add(post);
