@@ -113,7 +113,7 @@ public class WallFragment extends Fragment {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-                Toast.makeText(getContext(), "Scrolling", Toast.LENGTH_SHORT).show();
+                /*Toast.makeText(getContext(), "Scrolling", Toast.LENGTH_SHORT).show();
              OtpGen otpgen =new OtpGen();
                otpgen.execute("http://omtii.com/mile/nextrows.php?mobno="+mno);
 
@@ -142,7 +142,7 @@ public class WallFragment extends Fragment {
                } catch (JSONException e) {
                    e.printStackTrace();
                }
-                adapter.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();*/
 
             }
         });
