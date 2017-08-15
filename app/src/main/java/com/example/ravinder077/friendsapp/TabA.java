@@ -55,6 +55,10 @@ public class TabA extends Fragment implements RapidFloatingActionContentLabelLis
             Intent intent = new Intent(getContext(), ProfilePage.class);
             startActivity(intent);
         }
+        else if(item.getLabel().toString().equals("New Chat")) {
+            Intent intent = new Intent(getContext(), NewChatFriend.class);
+            startActivity(intent);
+        }
 
     }
 
@@ -71,6 +75,10 @@ public class TabA extends Fragment implements RapidFloatingActionContentLabelLis
         }
         else if(item.getLabel().toString().equals("New Group")) {
             Intent intent = new Intent(getContext(), GroupCreate.class);
+            startActivity(intent);
+        }
+        else if(item.getLabel().toString().equals("New Chat")) {
+            Intent intent = new Intent(getContext(), NewChatFriend.class);
             startActivity(intent);
         }
 
