@@ -19,12 +19,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +35,9 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+
+import static android.graphics.Color.BLACK;
+import static android.graphics.Color.WHITE;
 
 /**
  * Created by SandahSaab on 8/12/2017.
@@ -211,7 +216,7 @@ public class GroupCreate extends AppCompatActivity {
                 holder.coverImageView.setVisibility(View.VISIBLE);
                 holder.ImgTextView.setVisibility(View.INVISIBLE);
                 holder.coverImageView.setImageBitmap(myBitmap);
-                holder.chatIcon.setImageResource(R.drawable.chat1);
+                holder.chatIcon.setImageResource(0);
 
             }
            else
@@ -220,7 +225,7 @@ public class GroupCreate extends AppCompatActivity {
                 holder.ImgTextView.setVisibility(View.VISIBLE);
                 holder.coverImageView.setVisibility(View.INVISIBLE);
                 holder.ImgTextView.setText(list.get(position).getName().substring(0, 1));
-                holder.chatIcon.setImageResource(R.drawable.invite);
+                holder.chatIcon.setImageResource(0);
 
 
             }
@@ -253,6 +258,8 @@ public class GroupCreate extends AppCompatActivity {
         public ImageView coverImageView;
         public TextView ImgTextView;
         public  ImageView chatIcon;
+        public LinearLayout cardViewGroup;
+        public android.support.v7.widget.CardView view2;
 
         public MyViewHolder(View v) {
             super(v);
@@ -260,6 +267,11 @@ public class GroupCreate extends AppCompatActivity {
             coverImageView = (ImageView) v.findViewById(R.id.groupimg);
             ImgTextView=(TextView) v.findViewById(R.id.txtnfirst);
             chatIcon=(ImageView) v.findViewById(R.id.chaticon1);
+            cardViewGroup = (LinearLayout)v.findViewById(R.id.cardViewGroup);
+            view2 = (android.support.v7.widget.CardView) v.findViewById(R.id.view2);
+
+            chatIcon.setImageResource(0);
+
             coverImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -268,6 +280,19 @@ public class GroupCreate extends AppCompatActivity {
                 }
             });
 
+         MyRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener (getApplicationContext(), MyRecyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+             @Override
+             public void onItemClick(View view, int position) {
+
+
+
+             }
+
+             @Override
+             public void onItemLongClick(View view, int position) {
+                 // ...
+             }
+         }));
 
 
 
