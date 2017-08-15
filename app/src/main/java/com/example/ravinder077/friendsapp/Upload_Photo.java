@@ -152,92 +152,77 @@ public class Upload_Photo extends AppCompatActivity {
 
             if(requestCode == IMAGE_CAPTURE || requestCode==RESULT_LOAD_IMAGE) {
 
-                try
-                {
-                if(data.getData()==null)
-                {
+                SQLiteDatabase mydata = null;
+                try {
+                    if (data.getData() == null) {
 
-                    b=(Bitmap) data.getExtras().get("data");
-                 }
-                 else
-                {
+                        b = (Bitmap) data.getExtras().get("data");
+                    } else {
 
-                    b=MediaStore.Images.Media.getBitmap(this.getContentResolver(),data.getData());
-                }
+                        b = MediaStore.Images.Media.getBitmap(this.getContentResolver(), data.getData());
+                    }
 
-                    ImageView picView = (ImageView)findViewById(R.id.imguser);
+                    ImageView picView = (ImageView) findViewById(R.id.imguser);
                     picView.setImageBitmap(b);
 
                     // call to "saveToInternalStorage" function
-                   // String saveimg = saveToInternalStorage(b);
+                    // String saveimg = saveToInternalStorage(b);
 
 
-                    Intent intent=getIntent();
+                    Intent intent = getIntent();
 
-                    String mobno=intent.getStringExtra("mobno");
-                    String uname=intent.getStringExtra("uname");
+                    String mobno = intent.getStringExtra("mobno");
+                    String uname = intent.getStringExtra("uname");
 
 
-                    SQLiteDatabase mydata=openOrCreateDatabase("DM",MODE_PRIVATE,null);
+                    mydata = openOrCreateDatabase("DM", MODE_PRIVATE, null);
 
                     mydata.execSQL("create table if not exists user_pages(id varchar,pagename varchar,pagedesc varchar,profilephoto varchar,coverphoto varchar,businesstype varchar,businessname varchar,businessurl varchar);");
 
                     mydata.execSQL("create table if not exists new_user(name varchar,mobile varchar,photo varchar);");
-                    mydata.execSQL("insert into new_user values ('"+uname+"','"+mobno+"','"+b+"')");
+                    mydata.execSQL("insert into new_user values ('" + uname + "','" + mobno + "','" + b + "')");
 
-                    FileUpload fup=new FileUpload(getApplicationContext(),mydata);
+                    FileUpload fup = new FileUpload(getApplicationContext(), mydata);
                     fup.execute(b);
-                  //  System.err.println("imageName1"+b);
+                    //  System.err.println("imageName1"+b);
 
 
-                  //  String fupget=fup.get();
-                   // System.err.println("fupget" + fupget);
+                    //  String fupget=fup.get();
+                    // System.err.println("fupget" + fupget);
 
 
+                    //   OtpGen otpg=new OtpGen();
 
 
+                    //   String numurl="http://omtii.com/mile/savedata.php?uname="+uname+"&umob="+mobno+"&uimg="+fupget;
 
-
-
-
-
-
-
-                 //   OtpGen otpg=new OtpGen();
-
-
-                 //   String numurl="http://omtii.com/mile/savedata.php?uname="+uname+"&umob="+mobno+"&uimg="+fupget;
-
-                 //
+                    //
                     //   System.err.println("save img"+saveimg);
 
-              //      otpg.execute(numurl);
+                    //      otpg.execute(numurl);
 
-               //     System.err.println("numurl" + numurl);
-                 //*/
-
-
+                    //     System.err.println("numurl" + numurl);
+                    //*/
 
 
                     // Printing start
 
-                 //   Cursor resultSet = mydata.rawQuery("Select * from new_user", null);
-                 //   resultSet.moveToFirst();
+                    //   Cursor resultSet = mydata.rawQuery("Select * from new_user", null);
+                    //   resultSet.moveToFirst();
 
-                //    String username = resultSet.getString(0);
-                 //   String mobileno = resultSet.getString(1);
-                //    String photo = resultSet.getString(2);
+                    //    String username = resultSet.getString(0);
+                    //   String mobileno = resultSet.getString(1);
+                    //    String photo = resultSet.getString(2);
 
-                 //  System.err.println("user name " + username);
-                //    System.err.println("mobileno" + mobileno);
-                //    System.err.println("photo" + photo);
+                    //  System.err.println("user name " + username);
+                    //    System.err.println("mobileno" + mobileno);
+                    //    System.err.println("photo" + photo);
 
                     //printing end
-            }
-            catch(Exception e1)
-                {
-                   e1.printStackTrace();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
                 }
+                mydata.close();
             }
 
 

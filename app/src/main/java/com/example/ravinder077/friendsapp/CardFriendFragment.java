@@ -88,6 +88,8 @@ public class CardFriendFragment extends Fragment {
 
 
         }
+        mydata.close();
+        phones.close();
         initializeList(al);
 
         // System.err.println("contact ="+ ls);

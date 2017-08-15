@@ -145,6 +145,8 @@ public class login extends AppCompatActivity {
                 }
             }
         });
+        mydata.close();
+        resultSet.close();
 
 
     }
