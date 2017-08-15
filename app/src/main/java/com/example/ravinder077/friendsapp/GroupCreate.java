@@ -16,6 +16,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -52,6 +53,7 @@ public class GroupCreate extends AppCompatActivity {
     RecyclerView MyRecyclerView;
     static GroupCreate.MyAdapter adapter;
     ArrayList<FriendData> listitems = new ArrayList<>();
+    private SparseBooleanArray selecteditems;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,13 +90,15 @@ public class GroupCreate extends AppCompatActivity {
             String mobile = resultSet.getString(2);
             String cphoto=resultSet.getString(3);
             System.err.println("cphoto" + cphoto);
-            fd.setImage(cphoto);
-            fd.setName(name);
-            fd.setContact(mobile.replaceAll("\\s",""));
 
-            fd.setImage(imgUrl);
+            if(!imgUrl.equalsIgnoreCase(null)) {
+                fd.setImage(cphoto);
+                fd.setName(name);
+                fd.setContact(mobile.replaceAll("\\s", ""));
 
+                fd.setImage(imgUrl);
 
+            }
 
             //  fd.setContact(mobile);
             //  fd.setImg(R.drawable.great_wall_of_china);
@@ -164,48 +168,21 @@ public class GroupCreate extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final GroupCreate.MyViewHolder holder, int position) {
 
-            holder.titleTextView.setText(list.get(position).getName());
-
-            // holder.coverImageView.setImageResource(R.drawable.great_wall_of_china);
-            //  holder.coverImageView.setImageResource(R.drawable.user2);
-
-            //   holder.coverImageView.setTag(list.get(position).getImageResourceId());
-
-            // nf.setText(list.get(position).getName().substring(0,1));
-            //  if (list.get(position).getImage() == null) {
-             /*  holder.ImgTextView.setText(list.get(position).getName().substring(0, 1));
-
-           // } else {
-               // holder.ImgTextView.setVisibility(View.INVISIBLE);
-                //holder.coverImageView.setImageBitmap(list.get(position).getBimg());
-                   File file=new File(list.get(position).getImage());
-
-                System.err.println("list.get(position).getImage()"+list.get(position).getImage());
-                  //holder.coverImageView.setImageBitmap(list.get(position).getBimg());
-
-
-
-                              System.err.println("file.getAbsolutePath()"+file.getAbsolutePath());
-                              Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
-                              holder.coverImageView.setImageBitmap(bitmap);
-
-
-
-
-
-
-
-           // }*/
-
-
-
 
 
             File imgFile = new  File(list.get(position).getImage());
 
             System.err.println("list.get(position).getImage()"+list.get(position).getImage());
-            if(imgFile.exists()){
 
+
+
+            holder.titleTextView.setText(list.get(position).getName());
+
+
+           if(imgFile.exists()){
+
+
+               holder.titleTextView.setText(list.get(position).getName());
                 System.err.println("i m if");
                 System.err.println("imgFile.getAbsolutePath()"+imgFile.getAbsolutePath());
                 Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
@@ -219,8 +196,10 @@ public class GroupCreate extends AppCompatActivity {
                 holder.chatIcon.setImageResource(0);
 
             }
-           else
+         else
             {
+
+
                 System.err.println("i m not friends part");
                 holder.ImgTextView.setVisibility(View.VISIBLE);
                 holder.coverImageView.setVisibility(View.INVISIBLE);
@@ -282,16 +261,28 @@ public class GroupCreate extends AppCompatActivity {
 
          MyRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener (getApplicationContext(), MyRecyclerView, new RecyclerItemClickListener.OnItemClickListener() {
              @Override
-             public void onItemClick(View view, int position) {
+             public void onItemClick(View view, int position){
 
+                 if(view.isSelected()) {
+                     titleTextView.setTextColor(WHITE);
+                     view2.setBackgroundColor(BLACK);
+                     chatIcon.setImageResource(R.drawable.finish);
+                     view.setSelected(false);
+                 }
+                 else
+                 {
+                     titleTextView.setTextColor(BLACK);
+                     view2.setBackgroundColor(WHITE);
+                     chatIcon.setImageResource(0);
+                     view.setSelected(true);
 
-
+                 }
 
              }
 
              @Override
              public void onItemLongClick(View view, int position) {
-                 // ...
+
              }
          }));
 

@@ -13,6 +13,7 @@ public class RecyclerItemClickListener implements RecyclerView.OnItemTouchListen
         void onItemLongClick(View view, int position);
     }
 
+
     private OnItemClickListener mListener;
 
 
