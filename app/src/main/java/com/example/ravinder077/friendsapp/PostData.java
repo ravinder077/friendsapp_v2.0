@@ -1,6 +1,7 @@
 package com.example.ravinder077.friendsapp;
 
 
+import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -47,7 +49,7 @@ private Bitmap  myBitmap;
     private int MY_PERMISSIONS_REQUEST_LOCATION;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wallpost);
         viewImage=(ImageView) findViewById(R.id.viewImage);
@@ -94,6 +96,11 @@ private Bitmap  myBitmap;
               /*  Intent intent=new Intent(getApplicationContext(),WallFragment.class);
                 startActivity(intent);
 */
+                WallFragment fragment =  new WallFragment();
+                if (fragment != null) {
+                    android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+                    fragmentManager.beginTransaction().replace(R.id.fragmentContainer,fragment).commit();
+                }
             }
         });
 

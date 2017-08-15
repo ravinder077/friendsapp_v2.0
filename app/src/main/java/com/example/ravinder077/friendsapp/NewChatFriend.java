@@ -91,7 +91,7 @@ public class NewChatFriend extends AppCompatActivity {
 
             fd.setImage(cphoto);
             fd.setName(name);
-           // fd.setContact(mobile.replaceAll("\\s",""));
+        fd.setContact(mobile.replaceAll("\\s",""));
 
             fd.setImage(imgUrl);
 
