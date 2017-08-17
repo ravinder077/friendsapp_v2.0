@@ -296,24 +296,23 @@ public class GroupCreate extends AppCompatActivity {
     public void initializeList( ArrayList<FriendData> al) {
         listitems.clear();
 
-        for(FriendData cd:al)
-        {
+        for(FriendData cd:al) {
+            if (!cd.getImage().equalsIgnoreCase("null")) {
+                FriendData item = new FriendData();
+                item.setId(cd.getId());
+                item.setImg(cd.getImg());
+                item.setBimg(cd.getBimg());
+                item.setImage(cd.getImage());
 
-            FriendData item = new FriendData();
-            item.setId(cd.getId());
-            item.setImg(cd.getImg());
-            item.setBimg(cd.getBimg());
-            item.setImage(cd.getImage());
+                System.err.println("cd.getImage()" + cd.getImage());
+                // item.setImgg(cd.getImgg());
+                item.setName(cd.getName());
+                listitems.add(item);
 
-            System.err.println("cd.getImage()" + cd.getImage());
-            // item.setImgg(cd.getImgg());
-            item.setName(cd.getName());
-            listitems.add(item);
+            }
+
 
         }
-
-
-
 
     }
 
@@ -449,7 +448,7 @@ public class GroupCreate extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         //getMenuInflater().inflate(R.menu.menu, menu);
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.menucreategroup, menu);
 
 
         // Associate searchable configuration with the SearchView

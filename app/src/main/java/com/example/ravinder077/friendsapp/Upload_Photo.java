@@ -222,7 +222,7 @@ public class Upload_Photo extends AppCompatActivity {
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
-                mydata.close();
+
             }
 
 
