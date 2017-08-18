@@ -17,6 +17,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -48,6 +49,7 @@ public class CardFriendFragment extends Fragment {
     RecyclerView MyRecyclerView;
     static MyAdapter adapter;
     ArrayList<FriendData> listitems = new ArrayList<>();
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -129,7 +131,22 @@ public class CardFriendFragment extends Fragment {
         }
         MyRecyclerView.setLayoutManager(MyLayoutManager);
 
+       MyRecyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(getContext(),MyRecyclerView,new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        Toast.makeText(getContext(), listitems.get(position).getName() , Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(getContext(),ChatActivity.class);
+                        startActivity(i);
 
+                    }
+
+                    @Override
+                    public void onItemLongClick(View view, int position) {
+
+                    }
+                })
+        );
 
         return view;
     }
@@ -149,11 +166,12 @@ public class CardFriendFragment extends Fragment {
     public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> implements Filterable {
         private ArrayList<FriendData> list;
         private ArrayList<FriendData> list2;
-
+          AdapterView.OnItemClickListener mItemClickListener;
         public MyAdapter(ArrayList<FriendData> Data) {
             list = Data;
             list2=Data;
         }
+
 
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -165,6 +183,8 @@ public class CardFriendFragment extends Fragment {
 
             return holder;
         }
+
+
 
         @Override
         public void onBindViewHolder(final MyViewHolder holder, int position) {
@@ -289,22 +309,23 @@ public class CardFriendFragment extends Fragment {
     public void initializeList( ArrayList<FriendData> al) {
         listitems.clear();
 
-        for(FriendData cd:al)
-        {
+        for(FriendData cd:al) {
 
-            FriendData item = new FriendData();
-            item.setId(cd.getId());
-            item.setImg(cd.getImg());
-            item.setBimg(cd.getBimg());
-            item.setImage(cd.getImage());
+            if (!cd.getImage().equals("null")) {
+                FriendData item = new FriendData();
+                item.setId(cd.getId());
+                item.setImg(cd.getImg());
+                item.setBimg(cd.getBimg());
+                item.setImage(cd.getImage());
 
-            System.err.println("cd.getImage()" + cd.getImage());
-           // item.setImgg(cd.getImgg());
-            item.setName(cd.getName());
-            listitems.add(item);
+                System.err.println("cd.getImage()" + cd.getImage());
+                // item.setImgg(cd.getImgg());
+                item.setName(cd.getName());
+                listitems.add(item);
+
+            }
 
         }
-
 
 
 

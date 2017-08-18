@@ -39,12 +39,12 @@
 
         </activity>
         <activity android:name=".ProfilePage">
-
+            android:name="com.example.ravinder077.friendsapp.TabA"
         </activity>
 
         <activity android:name=".PostPhoto">
 
-        </activity>;\
+        </activity>
 
         <activity android:name=".MainActivity">
 
@@ -59,6 +59,10 @@
 
         </activity>
         <activity android:name=".PostData">
+        </activity>
+
+        <activity android:name=".ChatActivity">
+
         </activity>
 
         <activity android:name=".NewChatFriend">

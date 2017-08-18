@@ -14,10 +14,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,7 +43,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Created by ravinder077 on 03-08-2017.
  */
 
-public class ProfilePage extends ActionBarActivity
+public class ProfilePage extends AppCompatActivity
 
 {
     protected static final int IMAGE_CAPTURE = 102;
@@ -54,10 +57,21 @@ public class ProfilePage extends ActionBarActivity
      private String pageName;
 
 
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; goto parent activity.
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.profile_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         // Sets the Toolbar to act as the ActionBar for this Activity window.
@@ -67,12 +81,14 @@ public class ProfilePage extends ActionBarActivity
         toolbar.setTitle(R.string.title);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ImageView imageView = (ImageView) findViewById(R.id.header_cover_image);
 
         CircleImageView circleImageView=(CircleImageView)findViewById(R.id.user_profile_photo);
 
         Button button=(Button)findViewById(R.id.submit_action);
+
 
 
 
