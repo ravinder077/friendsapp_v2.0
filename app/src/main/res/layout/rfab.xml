@@ -8,7 +8,17 @@
         android:layout_height="match_parent"
         rfal:rfal_frame_color="#ffffff"
         rfal:rfal_frame_alpha="0.7">
-        <com.wangjie.rapidfloatingactionbutton.RapidFloatingActionButton
+
+    <android.support.v7.widget.RecyclerView
+
+        android:layout_marginTop="10sp"
+        android:id="@+id/recycler_view"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <com.wangjie.rapidfloatingactionbutton.RapidFloatingActionButton
             xmlns:rfab="http://schemas.android.com/apk/res-auto"
             android:id="@+id/activity_main_rfab"
             android:layout_width="wrap_content"
