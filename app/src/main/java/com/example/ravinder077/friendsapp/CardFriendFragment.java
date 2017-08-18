@@ -135,8 +135,12 @@ public class CardFriendFragment extends Fragment {
                 new RecyclerItemClickListener(getContext(),MyRecyclerView,new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Toast.makeText(getContext(), listitems.get(position).getName() , Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), listitems.get(position).getImage() , Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(getContext(),ChatActivity.class);
+                        i.putExtra("fname",listitems.get(position).getName());
+                        i.putExtra("fpic",listitems.get(position).getImage());
+
+
                         startActivity(i);
 
                     }
