@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -36,9 +37,11 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static android.graphics.Color.BLACK;
 import static android.graphics.Color.WHITE;
+import static android.graphics.Typeface.BOLD;
 
 /**
  * Created by SandahSaab on 8/12/2017.
@@ -46,20 +49,21 @@ import static android.graphics.Color.WHITE;
 
 public class GroupCreate extends AppCompatActivity {
 
-
-
+   private HashMap<Integer,String> selectedMap=new HashMap<Integer,String>();
+  private  int selected=-1;
     TextView nf;
     String name;
     RecyclerView MyRecyclerView;
     static GroupCreate.MyAdapter adapter;
     ArrayList<FriendData> listitems = new ArrayList<>();
     private SparseBooleanArray selecteditems;
+    TextView addcount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.groupcreate);
 
-
+         addcount=(TextView)findViewById(R.id.addcount);
         // Find the toolbar view inside the activity layout
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         // Sets the Toolbar to act as the ActionBar for this Activity window.
@@ -195,6 +199,32 @@ public class GroupCreate extends AppCompatActivity {
                 holder.coverImageView.setImageBitmap(myBitmap);
                 holder.chatIcon.setImageResource(0);
 
+
+                if(selectedMap!=null) {
+
+                    String bb = selectedMap.get(position);
+
+               //Toast.makeText(GroupCreate.this, bb, Toast.LENGTH_SHORT).show();
+               if(bb!=null && bb.equalsIgnoreCase("1") )
+               {
+
+                   holder.titleTextView.setTypeface(Typeface.defaultFromStyle(BOLD));
+                   holder.view2.setBackgroundColor(0xCE32FFFF);
+                   holder.chatIcon.setImageResource(R.drawable.finish);
+
+
+
+               }
+               else
+               {
+
+
+                   holder.view2.setBackgroundColor(WHITE);
+                   holder.chatIcon.setImageResource(0);
+
+               }
+                }
+
             }
          else
             {
@@ -206,7 +236,13 @@ public class GroupCreate extends AppCompatActivity {
                 holder.ImgTextView.setText(list.get(position).getName().substring(0, 1));
                 holder.chatIcon.setImageResource(0);
 
+            /*    if(position==selected)
+                {
 
+                    holder.titleTextView.setTextColor(WHITE);
+                    holder.view2.setBackgroundColor(0xFF94FF94);
+                    holder.chatIcon.setImageResource(R.drawable.finish);
+                }*/
             }
 
         }
@@ -240,8 +276,10 @@ public class GroupCreate extends AppCompatActivity {
         public LinearLayout cardViewGroup;
         public android.support.v7.widget.CardView view2;
 
+
         public MyViewHolder(View v) {
             super(v);
+
             titleTextView = (TextView) v.findViewById(R.id.grouptxt);
             coverImageView = (ImageView) v.findViewById(R.id.groupimg);
             ImgTextView=(TextView) v.findViewById(R.id.txtnfirst);
@@ -263,20 +301,54 @@ public class GroupCreate extends AppCompatActivity {
              @Override
              public void onItemClick(View view, int position){
 
-                 if(view.isSelected()) {
+
+
+                 selected=position;
+
+                 if(selectedMap!=null) {
+                     String item = selectedMap.get(position);
+
+                     if (item != null) {
+                         selectedMap.remove(position);
+                         addcount.setText(selectedMap.size()+"/256 added");
+                         adapter.notifyItemChanged(position);
+                     } else {
+
+
+                         selectedMap.put(position, "1");
+                         addcount.setText(selectedMap.size()+"/256 added");
+                         adapter.notifyItemChanged(position);
+                     }
+                 }
+                 else
+                 {
+
+
+                     selectedMap.put(position, "1");
+                     adapter.notifyItemChanged(position);
+                 }
+                 //adapter.notifyItemChanged(position);
+
+             
+
+                 //   Toast.makeText(GroupCreate.this, "name : "+position, Toast.LENGTH_SHORT).show();
+
+
+/*
+                 if(!listitems.get(position).getName().equalsIgnoreCase("null")) {
                      titleTextView.setTextColor(WHITE);
-                     view2.setBackgroundColor(BLACK);
+                     view2.setBackgroundColor(0xFF94FF94);
                      chatIcon.setImageResource(R.drawable.finish);
-                     view.setSelected(false);
+
                  }
                  else
                  {
                      titleTextView.setTextColor(BLACK);
                      view2.setBackgroundColor(WHITE);
                      chatIcon.setImageResource(0);
-                     view.setSelected(true);
 
                  }
+*/
 
              }
 
