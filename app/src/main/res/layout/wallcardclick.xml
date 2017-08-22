@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="25">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle"
+        android:layout_weight="23"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+
+
+    <LinearLayout
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="bottom"
+        android:layout_margin="5dp"
+        android:gravity="center_vertical"
+        android:weightSum="10">
+        <EditText
+            android:layout_weight="7"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:hint="Comment"
+            android:background="@drawable/border"
+            />
+        <ImageView
+            android:id="@+id/commentbtn"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:src="@drawable/comment"/>
+
+        <ImageView
+            android:id="@+id/likebtn"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:src="@drawable/likethumb"/>
+
+        <ImageView
+            android:id="@+id/sharebtn"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:src="@drawable/share3"/>
+    </LinearLayout>
+</LinearLayout>
