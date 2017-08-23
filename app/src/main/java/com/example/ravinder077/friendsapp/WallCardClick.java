@@ -27,20 +27,35 @@ public class WallCardClick extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wallcardclick);
-    }
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.wallcardclick, container, false);
-
-        MyRecyclerView = (RecyclerView) view.findViewById(R.id.recycle);
+        MyRecyclerView = (RecyclerView) findViewById(R.id.recycle);
 
         mLayoutManager = new LinearLayoutManager(this);
+        mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         MyRecyclerView.setLayoutManager(mLayoutManager);
 
+
+        WallCardClickData wallCardClickData=new WallCardClickData();
+        wallCardClickData.setCommentername("ajay");
+        wallCardClickData.setComment("awsome");
+        postlist.add(wallCardClickData);
+
+        WallCardClickData wallCardClickData1=new WallCardClickData();
+        wallCardClickData1.setCommentername("rahul");
+        wallCardClickData1.setComment("great work");
+        postlist.add(wallCardClickData1);
+
+        WallCardClickData wallCardClickData2=new WallCardClickData();
+        wallCardClickData2.setCommentername("kavi");
+        wallCardClickData2.setComment("good");
+        postlist.add(wallCardClickData2);
+
+        System.err.println("calling adapter");
         adapter = new WallCardClickAdapter(postlist);
         MyRecyclerView.setAdapter(adapter);
 
-        return view;
+
     }
+
 }

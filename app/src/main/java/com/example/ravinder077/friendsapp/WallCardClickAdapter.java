@@ -19,19 +19,21 @@ import java.util.List;
 public class WallCardClickAdapter extends RecyclerView.Adapter<WallCardClickAdapter.MyViewHolder> {
 
     private List<WallCardClickData> comments;
-
     public WallCardClickAdapter(List<WallCardClickData> postlist) {
         comments = postlist;
+
+        System.err.println("printing list"+comments);
+
     }
 
 
     class MyViewHolder extends RecyclerView.ViewHolder
     {
-        public  de.hdodenhof.circleimageview.CircleImageView profileimg;
+      /*  public  de.hdodenhof.circleimageview.CircleImageView profileimg;
         public TextView profilename;
         public TextView timestamp;
         public TextView status;
-        public ImageView mainimg;
+        public ImageView mainimg;*/
         public de.hdodenhof.circleimageview.CircleImageView commenterimg;
         public TextView commentername;
         public TextView comment;
@@ -40,11 +42,11 @@ public class WallCardClickAdapter extends RecyclerView.Adapter<WallCardClickAdap
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            profileimg = (de.hdodenhof.circleimageview.CircleImageView) itemView.findViewById(R.id.pic);
+       /*     profileimg = (de.hdodenhof.circleimageview.CircleImageView) itemView.findViewById(R.id.pic);
             profilename = (TextView) itemView.findViewById(R.id.username);
             timestamp = (TextView) itemView.findViewById(R.id.time);
             status = (TextView) itemView.findViewById(R.id.status);
-            mainimg = (ImageView) itemView.findViewById(R.id.mainimg);
+            mainimg = (ImageView) itemView.findViewById(R.id.mainimg);*/
             commenterimg = (de.hdodenhof.circleimageview.CircleImageView) itemView.findViewById(R.id.commenterdp);
             commentername = (TextView) itemView.findViewById(R.id.commenter);
             comment = (TextView) itemView.findViewById(R.id.comment);
@@ -62,15 +64,15 @@ public class WallCardClickAdapter extends RecyclerView.Adapter<WallCardClickAdap
 
     @Override
     public void onBindViewHolder(WallCardClickAdapter.MyViewHolder holder, int position) {
-        final WallCardClickData wallclickdata = comments.get(position);
+        WallCardClickData wallclickdata = comments.get(position);
 
 
-        holder.profileimg.setImageBitmap(wallclickdata.getProfileimgbit());
+ /*       holder.profileimg.setImageBitmap(wallclickdata.getProfileimgbit());
         holder.profilename.setText(wallclickdata.getProfilename());
         holder.status.setText(wallclickdata.getStatus());
         holder.timestamp.setText(wallclickdata.getTime());
-        holder.mainimg.setImageBitmap(wallclickdata.getMainimgbit());
-        holder.commenterimg.setImageBitmap(wallclickdata.getCommenterimgbit());
+        holder.mainimg.setImageBitmap(wallclickdata.getMainimgbit());*/
+        holder.commenterimg.setImageResource(R.drawable.user);
         holder.commentername.setText(wallclickdata.getCommentername());
         holder.comment.setText(wallclickdata.getComment());
 
