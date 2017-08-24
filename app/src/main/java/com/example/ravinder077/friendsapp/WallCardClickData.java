@@ -8,19 +8,19 @@ import android.graphics.Bitmap;
 
 public class WallCardClickData {
 
-    private Bitmap profileimgbit;
+/*    private Bitmap profileimgbit;
     private String profileimg;
     private String profilename;
     private String status;
     private String time;
     private Bitmap mainimgbit;
-    private String mainimg;
+    private String mainimg;*/
     private String commentername;
     private String commentercomment;
     private Bitmap commenterimgbit;
     private String commenterimg;
     private String comment;
-
+/*
     public Bitmap getProfileimgbit() {
         return profileimgbit;
     }
@@ -76,6 +76,10 @@ public class WallCardClickData {
     public void setMainimg(String mainimg) {
         this.mainimg = mainimg;
     }
+
+
+    */
+
 
     public String getCommentername() {
         return commentername;

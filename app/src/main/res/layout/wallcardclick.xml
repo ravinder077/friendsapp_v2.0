@@ -18,24 +18,30 @@
         android:layout_height="match_parent"
         android:orientation="vertical" />
 
-    <RelativeLayout
+    <LinearLayout
 
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <include layout="@layout/header"/>
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_gravity="left"
+            android:layout_below="@id/mainimg"
             android:background="#ffffff"
             app:reverseLayout="false"
             app:stackFromEnd="false" />
 
         <include layout="@layout/footer"/>
-    </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
 
 </android.support.v4.widget.DrawerLayout>
 
