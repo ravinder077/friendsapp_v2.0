@@ -53,7 +53,7 @@ public class PostRecAdapter  extends RecyclerView.Adapter<PostRecAdapter.MyViewH
         holder.profilename.setText(wallData.getProfilename());
         holder.poststatus.setText(wallData.getPoststatus());
 
-        System.err.println("Heeeeeeeeeeeeeeeeeeeellllllllllllloooooooooo"+wallData.getPostvdo());
+        System.err.println("walldatavdo"+wallData.getPostvdo());
 
 
 
