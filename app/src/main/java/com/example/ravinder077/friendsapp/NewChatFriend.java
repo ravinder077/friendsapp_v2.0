@@ -52,6 +52,10 @@ public class NewChatFriend extends AppCompatActivity {
     RecyclerView MyRecyclerView;
     static NewChatFriend.MyAdapter adapter;
     ArrayList<FriendData> listitems = new ArrayList<>();
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,14 +63,14 @@ public class NewChatFriend extends AppCompatActivity {
 
 
         // Find the toolbar view inside the activity layout
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarchat);
         // Sets the Toolbar to act as the ActionBar for this Activity window.
         // Make sure the toolbar exists in the activity and is not null
 
 
-        //toolbar.setTitle(R.string.title);
-        //setSupportActionBar(toolbar);
-
+        toolbar.setTitle("DM");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Toast.makeText(this, "CardGroupFragment", Toast.LENGTH_SHORT).show();
 
         ArrayList<FriendData> al = new ArrayList<>();
