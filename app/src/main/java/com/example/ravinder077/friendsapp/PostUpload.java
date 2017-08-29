@@ -89,7 +89,7 @@ public class PostUpload extends AsyncTask<Bitmap,String,String> {
         int serverResponseCode=0;
         String saveimg = saveToInternalStorage( params[0]);
 
-        System.out.println("saveimg"+saveimg);
+        System.err.println("saveimg"+saveimg);
 
 
         String sourceFileUri=saveimg;
@@ -107,7 +107,7 @@ public class PostUpload extends AsyncTask<Bitmap,String,String> {
         int maxBufferSize = 1 * 1024 * 1024;
         File sourceFile = new File(sourceFileUri);
         if (!sourceFile.isFile()) {
-            System.out.println("cannot not read source ");
+            System.err.println("cannot not read source ");
 
         }
         try { // open a URL connection to the Servlet
@@ -162,14 +162,14 @@ public class PostUpload extends AsyncTask<Bitmap,String,String> {
                 st=json_response;
             }
 
-            System.out.println("uploadFile HTTP Response is :"+json_response);
+            System.err.println("uploadFile HTTP Response is :"+json_response);
 
 
-            System.out.println("uploadFile HTTP Response is : " + serverResponseMessage + ": " + serverResponseCode);
+            System.err.println("uploadFile HTTP Response is : " + serverResponseMessage + ": " + serverResponseCode);
             //st=serverResponseMessage;
             if(serverResponseCode == 200){
 
-                System.out.println("serverResponseCode "+serverResponseCode);
+                System.err.println("serverResponseCode "+serverResponseCode);
 
             }
 
@@ -315,6 +315,9 @@ public class PostUpload extends AsyncTask<Bitmap,String,String> {
 
         //  System.err.println("query" + "http://omtii.com/mile/postwalldata.php?profilename="+username.getText()+"&status="+status.getText()+"&datetime="+datetime);
         String nurl="http://omtii.com/mile/postwalldata.php?profilename="+userid+"&status="+status+"&imgpath="+st;
+
+        System.err.println("sending post :"+nurl);
+
         String numurl= null;
         try {
             numurl = parseUrl(nurl);

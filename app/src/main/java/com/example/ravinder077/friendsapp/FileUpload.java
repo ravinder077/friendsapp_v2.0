@@ -288,11 +288,14 @@ public class FileUpload extends AsyncTask<Bitmap,String,String> {
         String mobileno1 = resultSet1.getString(1);
         String photo1 = resultSet1.getString(2);
 
-        System.out.println("username1"+username1);
-        System.out.println("mobileno1"+mobileno1);
-        System.out.println("photo1"+photo1);
+        System.err.println("username1"+username1);
+        System.err.println("mobileno1"+mobileno1);
+        System.err.println("photo1"+photo1);
 
         String numurl="http://omtii.com/mile/savedata.php?uname="+username+"&umob="+mobileno+"&uimg="+st;
+
+
+
 
         //
         //   System.err.println("save img"+saveimg);

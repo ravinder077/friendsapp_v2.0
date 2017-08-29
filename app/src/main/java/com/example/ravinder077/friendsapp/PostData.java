@@ -81,6 +81,7 @@ private Bitmap  myBitmap;
             public void onClick(View v) {
 
 
+                Toast.makeText(PostData.this, "send button clicked", Toast.LENGTH_SHORT).show();
 
                 EditText status=(EditText) findViewById(R.id.mindstatus);
 
@@ -93,14 +94,18 @@ private Bitmap  myBitmap;
 
 
                 Toast.makeText(PostData.this, "Post Submitted ", Toast.LENGTH_SHORT).show();
+
+
               /*  Intent intent=new Intent(getApplicationContext(),WallFragment.class);
                 startActivity(intent);
+
+
 */
                 WallFragment fragment =  new WallFragment();
-                if (fragment != null) {
+               /* if (fragment != null) {
                     android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
                     fragmentManager.beginTransaction().replace(R.id.fragmentContainer,fragment).commit();
-                }
+                }*/
             }
         });
 

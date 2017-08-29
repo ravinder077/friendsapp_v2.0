@@ -1,5 +1,6 @@
 package com.example.ravinder077.friendsapp;
 
+import android.content.Context;
 import android.media.Image;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +13,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.net.URI;
 import java.net.URL;
@@ -28,10 +32,16 @@ public class PostRecAdapter  extends RecyclerView.Adapter<PostRecAdapter.MyViewH
 
 
     private List<WallData> postlist;
-
-
+    private Context mcontext;
 
     public PostRecAdapter(List<WallData> postlist) {
+        this.postlist = postlist;
+    }
+
+
+    public PostRecAdapter(List<WallData> postlist,Context context) {
+
+        this.mcontext=context;
         this.postlist = postlist;
     }
 
@@ -49,7 +59,14 @@ public class PostRecAdapter  extends RecyclerView.Adapter<PostRecAdapter.MyViewH
         final WallData wallData = postlist.get(position);
 
 
-        holder.profilepic.setImageBitmap(wallData.getBitprofilepic());
+       // holder.profilepic.setImageBitmap(wallData.getBitprofilepic());
+
+        Glide.with(holder.profilepic.getContext()).load(wallData.getProfilepic())
+                .thumbnail(0.5f)
+                .crossFade()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.profilepic);
+
         holder.profilename.setText(wallData.getProfilename());
         holder.poststatus.setText(wallData.getPoststatus());
 
@@ -64,10 +81,19 @@ public class PostRecAdapter  extends RecyclerView.Adapter<PostRecAdapter.MyViewH
         System.err.println("image and vodeo ends");
 
 
-        if(wallData.getBitpostpic()!=null) {
+        if(wallData.getPostpic()!=null) {
 
             holder.postvdo.setVisibility(View.INVISIBLE);
-            holder.postpic.setImageBitmap(wallData.getBitpostpic());
+
+
+            //holder.postpic.setImageBitmap(wallData.getBitpostpic());
+            Glide.with(holder.postpic.getContext()).load(wallData.getPostpic())
+                    .thumbnail(0.5f)
+                    .crossFade()
+                    .placeholder(R.drawable.pagecoverphoto)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(holder.postpic);
+
 
         }
         else if(wallData.getPostvdo()!=null && wallData.getPostvdo()!="")
