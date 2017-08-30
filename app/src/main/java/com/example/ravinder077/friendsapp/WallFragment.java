@@ -247,7 +247,7 @@ public class WallFragment extends Fragment {
 
                 Log.d(TAG, "Fetch Stores: " + response);
                 showStores(response);
-                MyRecyclerView.setAdapter(adapter);
+                //MyRecyclerView.setAdapter(adapter);
                 System.err.println("adpter attached");
                 adapter.notifyDataSetChanged();
                 System.err.println("data set changed attached");

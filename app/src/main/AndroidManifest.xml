@@ -19,12 +19,36 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WallCardClick">
+        <activity android:name=".login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+
+        <activity android:name=".WallCardClick">
+
+        </activity>
+
+        <activity android:name=".ChatActivity">
+
+        </activity>
+
+        <activity android:name=".GroupCreate">
+
+        </activity>
+
+        <activity android:name=".MainActivity">
+
+        </activity>
+
+        <activity android:name=".MyGpsTracker">
+
+        </activity>
+        <activity android:name=".NewChatFriend">
+
         </activity>
 
         <activity android:name=".otp">
@@ -33,43 +57,23 @@
         <activity android:name=".Pagecatagory">
 
         </activity>
-        <activity android:name=".GroupCreate">
-
-        </activity>
         <activity android:name=".PageDescription">
 
         </activity>
+        <activity android:name=".PostData">
+
+        </activity>
         <activity android:name=".ProfilePage">
-            android:name="com.example.ravinder077.friendsapp.TabA"
-        </activity>
-
-        <activity android:name=".PostPhoto">
 
         </activity>
-
-        <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".login">
-
-        </activity>
-
-        <activity android:name=".User_Name">
-
-        </activity>
-
-
         <activity android:name=".Upload_Photo">
 
         </activity>
-        <activity android:name=".PostData">
-        </activity>
+        <activity android:name=".WallCardClick">
 
-        <activity android:name=".ChatActivity">
-           
         </activity>
+        <activity android:name=".PostPhoto">
 
-        <activity android:name=".NewChatFriend">
         </activity>
 
         <service android:name=".PhotoService" />
