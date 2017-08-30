@@ -75,6 +75,10 @@
         <activity android:name=".PostPhoto">
 
         </activity>
+        <activity android:name=".User_Name">
+
+        </activity>
+        <activity android:name=".PageCreated"></activity>
 
         <service android:name=".PhotoService" />
 

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:id="@+id/mainlayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -21,16 +23,16 @@
         android:id="@+id/user_profile_photo"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/dp"
         app:civ_border_overlay="true"
         app:civ_border_color="@android:color/white"
         app:civ_border_width="2dp"
         android:scaleType="centerCrop" />
 
     <TextView
+        android:id="@+id/pagename"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PageName"
+
         android:textSize="22dp"
         android:textColor="@android:color/white"
         android:layout_marginLeft="30dp"
@@ -49,21 +51,20 @@
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/catagory"
+            android:id="@+id/catagoryimg"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/pagecatapersonal"
             app:civ_border_color="@android:color/white"
             app:civ_border_overlay="true"
             android:backgroundTint="@android:color/holo_blue_dark"
             app:civ_border_width="2dp" />
 
         <TextView
+            android:id="@+id/catagory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:text="Page Catagory"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="22dp"
@@ -88,6 +89,7 @@
         android:textColor="@android:color/white"
         />
     <EditText
+        android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border1"
@@ -105,6 +107,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/finishbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Finish"

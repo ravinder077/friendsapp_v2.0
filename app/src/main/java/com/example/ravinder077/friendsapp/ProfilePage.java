@@ -337,13 +337,43 @@ public class ProfilePage extends AppCompatActivity
         }
     }
 
-    private String saveToInternalStorage(Bitmap bitmapImage){
+   /* private String saveToInternalStorage(Bitmap bitmapImage){
         System.err.println("I m in save Internal storage function");
         ContextWrapper cw = new ContextWrapper(getApplicationContext());
         // path to /data/data/yourapp/app_data/imageDir
         File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
         // Create imageDir
         String imgname="upic.jpg";
+        File mypath=new File(directory,imgname);
+
+        FileOutputStream fos = null;
+        try {
+            System.err.println("I m in save Internal storage function try block");
+            fos = new FileOutputStream(mypath);
+            // Use the compress method on the BitMap object to write image to the OutputStream
+            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
+        } catch (Exception e) {
+            System.err.println("I m in save Internal storage function catch block");
+            e.printStackTrace();
+        } finally {
+            try {
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return directory.getAbsolutePath()+"/"+imgname;
+    }
+*/
+
+
+    private String saveToInternalStorage(Bitmap bitmapImage){
+        System.err.println("I m in save Internal storage function");
+        ContextWrapper cw = new ContextWrapper(getApplicationContext());
+        // path to /data/data/yourapp/app_data/imageDir
+        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+        // Create imageDir
+        String imgname=Math.random()+"upic.jpg";
         File mypath=new File(directory,imgname);
 
         FileOutputStream fos = null;

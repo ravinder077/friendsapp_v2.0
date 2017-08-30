@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_green_dark"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/white"
+
+        >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+
+    >
+        <RelativeLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:padding="6dp"
+
+            >
+
+            <ImageView
+                android:id="@+id/pagedp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignBottom="@+id/pagedpoverlay"
+                android:layout_alignLeft="@+id/pagedpoverlay"
+                android:layout_alignRight="@+id/pagedpoverlay"
+                android:layout_alignTop="@+id/pagedpoverlay"
+                android:src="@drawable/groupdp1" />
+
+            <ImageView
+                android:id="@+id/pagedpoverlay"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/pagedpovelay" />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/pagename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textSize="19sp"
+            android:textColor="@android:color/white"
+
+            />
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+
+</LinearLayout>
