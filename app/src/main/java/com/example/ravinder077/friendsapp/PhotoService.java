@@ -13,6 +13,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.IBinder;
+import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -80,16 +82,60 @@ public class PhotoService extends Service {
 
         try {
             ArrayList<PhotoModel> photono=  jsonToMap(jsonphoto);
+            Cursor phones = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
+            System.err.println("before loop");
+            ArrayList<UserContact> list = new ArrayList<UserContact>();
+            HashMap<String,String> ls=new HashMap<String,String>();
+            while (phones.moveToNext()) {
 
+                // System.err.println("in loop");
+                String name = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+                String phoneNumber = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+
+                String phone = phoneNumber.replaceAll("[^0-9]","").replaceAll("\\s","");
+                ls.put(phone.replaceAll("\\s",""),name);
+
+
+            }
+
+
+            for (Map.Entry<String, String> entry : ls.entrySet())
+            {
+                String key = entry.getKey();
+                String value = entry.getValue();
+                System.err.println("key "+key +" value  "+value);
+            }
+
+            System.err.println("ls"+ls);
             for (PhotoModel cd:photono) {
 
 
                 Toast.makeText(this, "Friends List Updated", Toast.LENGTH_SHORT).show();
                 SQLiteDatabase mydata1 = openOrCreateDatabase("DM", MODE_PRIVATE, null);
-                mydata1.execSQL("update contact set cphoto='"+cd.getImgpath()+"' where cnumber='"+cd.getName()+"'");
+                mydata1.execSQL("update contact set cphoto='"+cd.getImgpath()+"' ,cname='"+ls.get(cd.getName())+"' where cnumber='"+cd.getName()+"'");
                 System.err.println(" query : update contact set cphoto='"+cd.getImgpath()+"' where cnumber='"+cd.getName()+"'");
 
+                String name="ravinder";
+                System.err.println("cd.getName()"+cd.getName());
+
+
+
+
+                String name1=ls.get(cd.getName());
+
+                System.err.println("cd.getName()"+cd.getName());
+                System.err.println("name1"+name1);
+
+               // mydata.execSQL("insert or replace into contactnews values ('" + pmobile + "','" + name1 + "','" + cd.getName() + "','" + cd.getImgpath() + "')");
+
             }
+
+
+
+
+
+
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -141,6 +187,7 @@ public class PhotoService extends Service {
                     String A = obj.getString("cmobile");
                     String B = obj.getString("cphoto");
 
+
                     System.out.println(A + " " + B );
 
                     PhotoModel cc=new PhotoModel();
@@ -148,15 +195,15 @@ public class PhotoService extends Service {
                     cc.setName(A);
                     // cc.setImgpath(B);
 
-                //  MyThread myThread=new MyThread(B,A);
-                 //  myThread.start();
+                    //  MyThread myThread=new MyThread(B,A);
+                    //  myThread.start();
                     GetBitmapfromUrlThread  getBitmapfromUrlThread=new GetBitmapfromUrlThread();
                     getBitmapfromUrlThread.execute(B);
                     Bitmap bb=getBitmapfromUrlThread.get();
 
-                   // Bitmap bb=   getBitmapfromUrl(B);
-                      String photopath=saveToInternalStorage(bb);
-                   // String photopath=null;
+                    // Bitmap bb=   getBitmapfromUrl(B);
+                    String photopath=saveToInternalStorage(bb);
+                    // String photopath=null;
                     cc.setImgpath(photopath);
 
                     System.err.println("photopath"+photopath);
