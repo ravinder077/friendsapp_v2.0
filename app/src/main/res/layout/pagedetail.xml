@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleTextColor="@android:color/white"
+
+        android:background="@android:color/holo_green_dark">
+    </android.support.v7.widget.Toolbar>
+
+
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_marginTop="0dp"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/pagecover"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/pagecoverphoto" />
+            <LinearLayout
+                android:weightSum="5"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_below="@+id/pagecover"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-60dp"
+                android:elevation="5dp"
+                android:gravity="center_horizontal"
+                >
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/pagepic"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:elevation="5dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/pageprofile"
+                    app:civ_border_color="@android:color/white"
+                    app:civ_border_overlay="true"
+                    app:civ_border_width="2dp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/pagenamelayout"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:background="@android:color/holo_red_light"
+                android:paddingBottom="24dp"
+                android:layout_below="@+id/pagecover"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+
+
+
+                <TextView
+                    android:id="@+id/pagename"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:hint="Page Name"
+                    android:textColor="#fff"
+                    android:layout_centerVertical="true"
+                    android:textColorHint="#c6ffffff"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/pagename"
+                    android:gravity="center_vertical"
+                    android:layout_centerHorizontal="true"
+                    >
+
+                <ImageView
+                    android:id="@+id/catagoryimg1"
+                    android:layout_height="50dp"
+                    android:layout_width="50dp"
+                    android:elevation="10dp"
+                    android:src="@drawable/pagecataeducation"
+                    />
+                    <TextView
+                        android:id="@+id/catagoryname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="22sp"
+                        android:text="Education"
+                        android:layout_marginLeft="5dp"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pagenamelayout"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

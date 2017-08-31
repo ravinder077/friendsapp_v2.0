@@ -79,6 +79,7 @@
 
         </activity>
         <activity android:name=".PageCreated"></activity>
+        <activity android:name=".PageDetail"></activity>
 
         <service android:name=".PhotoService" />
 

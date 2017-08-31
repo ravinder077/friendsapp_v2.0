@@ -17,11 +17,19 @@
         >
 
 <LinearLayout
+    android:weightSum="7"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
 
+
     >
+    <LinearLayout
+        android:id="@+id/pagetitle"
+        android:layout_weight="6"
+        android:layout_width="0dp"
+        android:gravity="center_vertical"
+        android:layout_height="match_parent">
         <RelativeLayout
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -59,7 +67,7 @@
 
             />
         </LinearLayout>
-
+</LinearLayout>
     </android.support.v7.widget.Toolbar>
 
 

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -37,7 +38,7 @@ public class PageDescription extends AppCompatActivity {
         TextView pagename = (TextView) findViewById(R.id.pagename);
         de.hdodenhof.circleimageview.CircleImageView catagoryimgset = (de.hdodenhof.circleimageview.CircleImageView) findViewById(R.id.catagoryimg);
         TextView catagoryset = (TextView) findViewById(R.id.catagory);
-        EditText desc = (EditText) findViewById(R.id.description);
+        final EditText desc = (EditText) findViewById(R.id.description);
         Button finishbtn = (Button) findViewById(R.id.finishbtn);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.mainlayout);
 
@@ -54,6 +55,8 @@ public class PageDescription extends AppCompatActivity {
                 i.putExtra("pagename",name);
                 i.putExtra("pageimg",profile);
                 i.putExtra("catagory",catagory);
+                i.putExtra("cover",cover);
+                i.putExtra("catagoryimg",catagoryimg);
                 startActivity(i);
             }
         });

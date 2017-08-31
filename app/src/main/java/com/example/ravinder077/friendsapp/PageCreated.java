@@ -8,7 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -24,19 +26,34 @@ public class PageCreated extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pagecreated);
 
-        Intent intent=getIntent();
+        final Intent intent=getIntent();
 
         final String name=intent.getStringExtra("pagename");
         final String pageimg=intent.getStringExtra("pageimg");
         final String catagory=intent.getStringExtra("catagory");
+        final String catagoryimg = intent.getStringExtra("catagoryimg");
+        final String cover = intent.getStringExtra("cover");
 
 
         ImageView imageView = (ImageView) findViewById(R.id.pagedp);
         TextView textView = (TextView) findViewById(R.id.pagename);
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.pagetitle);
 
         imageView.setImageURI(Uri.parse(pageimg));
         textView.setText(name);
 
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(),PageDetail.class);
+                i.putExtra("pagename",name);
+                i.putExtra("pageimg",pageimg);
+                i.putExtra("catagory",catagory);
+                i.putExtra("cover",cover);
+                i.putExtra("catagoryimg",catagoryimg);
+                startActivity(i);
+            }
+        });
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.title);
