@@ -84,15 +84,17 @@ public class login extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                if(etmob.getText().toString().length()==0)
+                if(etmob.getText().toString().length()<10)
                 {
-                    etmob.setError("Mobile Number is Required");
+                    etmob.setError("Mobile Number must be 10 digits");
                 }
+
                 else
 
                 {
                     OtpGen otpg=new OtpGen();
                     String numurl="http://omtii.com/mile/otpgen.php?id="+etmob.getText();
+
 
                     System.err.println("numurl"+numurl);
 
@@ -116,7 +118,7 @@ public class login extends AppCompatActivity {
                         sms.sendTextMessage(mobno, null,mess , null, null);*/
 
                        // Toast.makeText(login.this, "Please Wait", Toast.LENGTH_SHORT).show();
-                        etmob.setError("Please connect your Device With Internet");
+                        etmob.setError("Please check your network connection and try again");
 
                     }
                     else {
