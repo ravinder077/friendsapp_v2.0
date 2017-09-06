@@ -3,6 +3,7 @@ package com.example.ravinder077.friendsapp;
 import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -58,20 +59,38 @@ public class GroupCreate extends AppCompatActivity {
     ArrayList<FriendData> listitems = new ArrayList<>();
     private SparseBooleanArray selecteditems;
     TextView addcount;
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; goto parent activity.
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.groupcreate);
 
          addcount=(TextView)findViewById(R.id.addcount);
+
+
         // Find the toolbar view inside the activity layout
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         // Sets the Toolbar to act as the ActionBar for this Activity window.
-        // Make sure the toolbar exists in the activity and is not null
+        // Make sure the toolbar exists in the activity and is not nul
 
 
         toolbar.setTitle(R.string.title);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
 
         Toast.makeText(this, "CardGroupFragment", Toast.LENGTH_SHORT).show();
 
@@ -589,13 +608,6 @@ public class GroupCreate extends AppCompatActivity {
 
 
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
 
-        return super.onOptionsItemSelected(item);
-    }
 }
 

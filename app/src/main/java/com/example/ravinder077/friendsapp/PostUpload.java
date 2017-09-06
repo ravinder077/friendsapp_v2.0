@@ -294,13 +294,6 @@ public class PostUpload extends AsyncTask<Bitmap,String,String> {
 
 
 
-
-
-
-
-
-
-
         // OtpGen otpg=new OtpGen();
 
 
@@ -363,10 +356,6 @@ public class PostUpload extends AsyncTask<Bitmap,String,String> {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
-
 
         return st;
     }
