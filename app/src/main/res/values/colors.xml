@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="greenonline">#06b306</color>
     <color name="lightgray">#d2d7d2</color>
+    <color name="cyantrans">#7f3dfcef</color>
 </resources>

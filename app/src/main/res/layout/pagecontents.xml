@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border1"
+    >
+
+    <!--
+ Title bar
+    <LinearLayout
+        android:weightSum="9"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center_vertical"
+
+
+        >
+
+        <LinearLayout
+            android:id="@+id/pagetitle"
+            android:layout_width="0dp"
+            android:elevation="4dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8.8"
+            android:gravity="center_vertical"
+            android:weightSum="6">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1.2"
+                android:elevation="4dp"
+                android:padding="6dp"
+                >
+
+                <ImageView
+                    android:id="@+id/pagedp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:elevation="4dp"
+                    android:layout_alignBottom="@+id/pagedpoverlay"
+                    android:layout_alignLeft="@+id/pagedpoverlay"
+                    android:layout_alignRight="@+id/pagedpoverlay"
+                    android:layout_alignTop="@+id/pagedpoverlay"
+                    android:src="@drawable/groupdp1" />
+
+                <ImageView
+                    android:id="@+id/pagedpoverlay"
+                    android:layout_width="match_parent"
+                    android:elevation="4dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/pagedpovelay" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="4.8"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/pagename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="19sp"
+                android:text="Rajan"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+
+                />
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/pagename"
+                    android:layout_marginTop="3dp"
+                    android:textSize="15sp"
+                    android:gravity="bottom"
+                    android:text="2017/09/09  3:13pm"
+                    android:layout_below="@id/pagename"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <Spinner
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="5dp"
+            >
+
+        </Spinner>
+</LinearLayout>
+    Title bar ends
+   -->
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@+id/mainimg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="false"
+            android:layout_centerVertical="false"
+            android:adjustViewBounds="true"
+            android:src="@drawable/groupdp1"
+            android:scaleType="centerCrop"
+            android:maxHeight="420dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="7dp">
+
+            <TextView
+                android:id="@+id/pagestatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxHeight="200dp"
+                android:text="Status Show here"
+                android:textColor="@android:color/secondary_text_light"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:weightSum="3"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        >
+
+       <LinearLayout
+           android:weightSum="3"
+           android:layout_weight="1"
+           android:layout_width="0dp"
+           android:layout_height="match_parent">
+
+           <ImageView
+               android:layout_weight="1"
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:src="@drawable/likethumb"
+               android:padding="10dp"
+               />
+
+           <ImageView
+               android:layout_weight="1"
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:src="@drawable/comment"
+               android:padding="10dp"
+               />
+
+           <ImageView
+               android:layout_weight="1"
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:src="@drawable/share3"
+               android:padding="10dp"
+               />
+
+
+       </LinearLayout>
+        <RelativeLayout
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+
+            >
+            <ImageView
+                android:id="@+id/infoicon"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/info1"
+                />
+
+            <TextView
+                android:id="@+id/count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:textSize="12sp"
+                android:layout_toLeftOf="@id/infoicon"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="100 Likes, 20 Comments, 50 Share"
+                />
+
+
+        </RelativeLayout>
+
+        </LinearLayout>
+
+</LinearLayout>

@@ -98,9 +98,9 @@ System.err.println("Test github");
 
             @Override
             public void onClick(View v) {
-                if(etmob.getText().toString().length()==0)
+                if(etmob.getText().toString().length()<4)
                 {
-                    etmob.setError("OTP is Required");
+                    etmob.setError("Invalid OTP, Check your inbox and try again");
                 }
                 else
                 {

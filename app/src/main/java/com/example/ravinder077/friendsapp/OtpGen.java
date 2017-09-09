@@ -28,7 +28,6 @@ public class OtpGen extends AsyncTask<String,String,String> {
 
 
             url=new URL(params[0]);
-            url1=new URL(params[1]);
             System.err.println("url"+url);
             HttpURLConnection con=(HttpURLConnection) url.openConnection();
             con.setRequestProperty("User-Agent","");
