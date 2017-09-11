@@ -5,6 +5,8 @@ import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,16 +17,54 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by SandahSaab on 8/30/2017.
  */
 
 public class PageCreated extends AppCompatActivity {
 
+    private List<PageCreatedData> postlist = new ArrayList<>();
+    private RecyclerView MyRecyclerView;
+    private PageCreatedAdapter adapter;
+    private LinearLayoutManager mLayoutManager;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pagecreated);
+
+
+
+        MyRecyclerView = (RecyclerView) findViewById(R.id.pagerecycler);
+
+        mLayoutManager = new LinearLayoutManager(this);
+        mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+
+        MyRecyclerView.setLayoutManager(mLayoutManager);
+
+
+        PageCreatedData pagecreateddata=new PageCreatedData();
+        pagecreateddata.setStatus("Hello Dear");
+        postlist.add(pagecreateddata);
+
+        PageCreatedData pagecreateddata1=new PageCreatedData();
+        pagecreateddata.setStatus("Just Checking");
+        postlist.add(pagecreateddata1);
+
+        PageCreatedData pagecreateddata2=new PageCreatedData();
+        pagecreateddata.setStatus("Test my app");
+        postlist.add(pagecreateddata2);
+
+        System.err.println("calling adapter");
+        adapter = new PageCreatedAdapter(postlist);
+        MyRecyclerView.setAdapter(adapter);
+
+
+
+
 
         final Intent intent=getIntent();
 
