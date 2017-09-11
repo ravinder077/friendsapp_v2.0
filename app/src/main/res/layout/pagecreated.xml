@@ -37,7 +37,7 @@
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.2"
+            android:layout_weight="2"
             android:elevation="4dp"
             android:padding="3dp"
             >
