@@ -193,20 +193,25 @@ public class PhotoService extends Service {
                     PhotoModel cc=new PhotoModel();
 
                     cc.setName(A);
+
+                    //commented for change fetching images online starts
                     // cc.setImgpath(B);
 
                     //  MyThread myThread=new MyThread(B,A);
                     //  myThread.start();
-                    GetBitmapfromUrlThread  getBitmapfromUrlThread=new GetBitmapfromUrlThread();
+                  /*  GetBitmapfromUrlThread  getBitmapfromUrlThread=new GetBitmapfromUrlThread();
                     getBitmapfromUrlThread.execute(B);
                     Bitmap bb=getBitmapfromUrlThread.get();
-
-                    // Bitmap bb=   getBitmapfromUrl(B);
-                    String photopath=saveToInternalStorage(bb);
+*/
+                    // Bitmap bb=   getBitmapfromUrl(B);/*
+                   // String photopath=saveToInternalStorage(bb);
                     // String photopath=null;
-                    cc.setImgpath(photopath);
 
-                    System.err.println("photopath"+photopath);
+                    //commented for change fetching images online ends
+
+                    cc.setImgpath(B);
+
+                    System.err.println("photopath"+B);
                     al.add(cc);
 
 

@@ -24,6 +24,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
 import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
@@ -228,25 +231,35 @@ public class CardFriendFragment extends Fragment {
 
 
 
+            //modifed for new code fectching images online starts
 
-
-            File imgFile = new  File(list.get(position).getImage());
+           // File imgFile = new  File(list.get(position).getImage());
 
             System.err.println("list.get(position).getImage()"+list.get(position).getImage());
-            if(imgFile.exists()){
+            if(list.get(position).getImage()!=null){
 
                 System.err.println("i m if");
-                System.err.println("imgFile.getAbsolutePath()"+imgFile.getAbsolutePath());
-                Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+               // System.err.println("imgFile.getAbsolutePath()"+imgFile.getAbsolutePath());
+               // Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
 
                 // ImageView myImage = (ImageView) findViewById(R.id.imageviewTest);
 
                 //  myImage.setImageBitmap(myBitmap);
+
+
+                Glide.with(holder.coverImageView.getContext()).load(list.get(position).getImage())
+                        .thumbnail(0.5f)
+                        .crossFade()
+                        .placeholder(R.drawable.pagecoverphoto)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(holder.coverImageView);
+
+
                 holder.coverImageView.setVisibility(View.VISIBLE);
                 holder.ImgTextView.setVisibility(View.INVISIBLE);
-                holder.coverImageView.setImageBitmap(myBitmap);
+               // holder.coverImageView.setImageBitmap(myBitmap);
                 holder.chatIcon.setImageResource(R.drawable.chat1);
-
+                //modifed for new code fectching images online ends
             }
             else
             {
