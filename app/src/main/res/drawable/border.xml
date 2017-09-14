@@ -10,10 +10,10 @@
         android:color="@android:color/darker_gray"
         android:width="1dip"
         />
-    <padding
+    <!--<padding
         android:left="3dp"
         android:right="3dp"
         android:top="3dp"
         android:bottom="3dp"
-       />
+       />-->
 </shape>

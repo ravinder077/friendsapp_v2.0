@@ -51,11 +51,11 @@ public class PageCreated extends AppCompatActivity {
         postlist.add(pagecreateddata);
 
         PageCreatedData pagecreateddata1=new PageCreatedData();
-        pagecreateddata.setStatus("Just Checking");
+        pagecreateddata1.setStatus("Just Checking");
         postlist.add(pagecreateddata1);
 
         PageCreatedData pagecreateddata2=new PageCreatedData();
-        pagecreateddata.setStatus("Test my app");
+        pagecreateddata2.setStatus("Test my app");
         postlist.add(pagecreateddata2);
 
         System.err.println("calling adapter");

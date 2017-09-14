@@ -39,7 +39,7 @@ public class PageCreatedAdapter extends RecyclerView.Adapter<PageCreatedAdapter.
           /*  profileimg = (de.hdodenhof.circleimageview.CircleImageView) itemView.findViewById(R.id.pic);
             profilename = (TextView) itemView.findViewById(R.id.username);
             timestamp = (TextView) itemView.findViewById(R.id.time);*/
-            status = (TextView) itemView.findViewById(R.id.pagestatus);
+            status = (TextView) itemView.findViewById(R.id.status);
             mainimg = (ImageView) itemView.findViewById(R.id.mainimg);
 
 
@@ -63,7 +63,7 @@ public class PageCreatedAdapter extends RecyclerView.Adapter<PageCreatedAdapter.
         holder.profilename.setText(wallclickdata.getProfilename());*/
         holder.status.setText(pagecreate.getStatus());
       //  holder.timestamp.setText(wallclickdata.getTime());
-        holder.mainimg.setImageBitmap(pagecreate.getMainimgbit());
+        holder.mainimg.setImageResource(R.drawable.groupdp1);
      /*   holder.commenterimg.setImageResource(R.drawable.user);
         holder.commentername.setText(wallclickdata.getCommentername());
         holder.comment.setText(wallclickdata.getComment());
