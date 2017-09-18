@@ -4,14 +4,14 @@
     android:elevation="2dp"
     android:layout_height="wrap_content">
     <LinearLayout
-        android:layout_marginTop="5dp"
+        android:padding="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         >
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/pic"
+            android:id="@+id/img"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="8dp"
@@ -24,7 +24,7 @@
             android:layout_marginLeft="15dp"
             >
             <TextView
-                android:id="@+id/username"
+                android:id="@+id/ProfileName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name"
@@ -35,11 +35,12 @@
                 />
 
             <TextView
-                android:id="@+id/time"
+                android:id="@+id/TimeStamp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/username"
+                android:layout_below="@id/ProfileName"
                 android:text="Sun, 2017-May-02, 12:50PM"
+                android:textSize="11sp"
                 />
         </RelativeLayout>
     </LinearLayout>

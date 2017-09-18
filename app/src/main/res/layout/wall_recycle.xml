@@ -9,6 +9,7 @@
         rfal:rfal_frame_color="#ffffff"
         rfal:rfal_frame_alpha="0.7"
         android:paddingTop="10sp"
+        android:background="@color/blue"
     >
 
         <android.support.v7.widget.RecyclerView

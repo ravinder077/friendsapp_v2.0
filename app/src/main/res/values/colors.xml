@@ -7,5 +7,6 @@
     <color name="lightgray">#d2d7d2</color>
     <color name="cyantrans">#7f3dfcef</color>
     <color name="blacktrans">#a4000000</color>
-    <color name="trans">#a4ffdede</color>
+    <color name="blue">#0e005ed1</color>
+    <color name="bluelitledark">#1c005ed1</color>
 </resources>
