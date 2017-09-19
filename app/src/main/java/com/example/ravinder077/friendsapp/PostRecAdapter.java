@@ -119,13 +119,16 @@ public class PostRecAdapter  extends RecyclerView.Adapter<PostRecAdapter.MyViewH
         holder.likelayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.err.println("Like Post value = " + holder.liketext.getText());
+                //System.err.println("Like Post value = " + holder.liketext.getText());
 
-                if(holder.liketext.getText().equals("Like"))
+                if(holder.likelayout.getResources().equals(R.drawable.likethumb))
               {
-                  System.err.println("Like Post in if" + holder.liketext.getText());
-                  holder.likeicon.setImageResource(R.drawable.unlike);
-                  holder.liketext.setText("Unlike");
+
+
+                  System.err.println("i am in if likethumb");
+                  //System.err.println("Like Post in if" + holder.liketext.getText());
+                  holder.likelayout.setImageResource(R.drawable.unlike);
+                 // holder.liketext.setText("Unlike");
                   OtpGen otpgen=new OtpGen();
                   otpgen.execute("http://omtii.com/mile/updatelike.php?id="+postid+"&status=1");
                   try {
@@ -140,9 +143,13 @@ public class PostRecAdapter  extends RecyclerView.Adapter<PostRecAdapter.MyViewH
               }
               else
                 {
-                    System.err.println("UnLike Post in else" + holder.liketext.getText());
-                    holder.likeicon.setImageResource(R.drawable.likethumb);
-                    holder.liketext.setText("Like");
+
+
+                    System.err.println("i am in else likethumb");
+
+                //    System.err.println("UnLike Post in else" + holder.liketext.getText());
+                    holder.likelayout.setImageResource(R.drawable.likethumb);
+                    //holder.liketext.setText("Like");
 
                     OtpGen otpgen=new OtpGen();
                     otpgen.execute("http://omtii.com/mile/updatelike.php?id="+postid+"&status=0");
@@ -196,8 +203,8 @@ public class PostRecAdapter  extends RecyclerView.Adapter<PostRecAdapter.MyViewH
         public TextView postcomments;
         public TextView postshare;
         public TextView posttime;
-        public TextView liketext;
-        public RelativeLayout likelayout;
+        //public TextView liketext;
+        public ImageView likelayout;
         public ImageView likeicon;
         public MyViewHolder(View view) {
             super(view);
@@ -210,9 +217,9 @@ public class PostRecAdapter  extends RecyclerView.Adapter<PostRecAdapter.MyViewH
             postcomments=(TextView) view.findViewById(R.id.commentcount);
             postshare=(TextView) view.findViewById(R.id.sharecount);
             posttime=(TextView) view.findViewById(R.id.TimeStamp);
-            likelayout=(RelativeLayout) view.findViewById(R.id.likelayout);
-            liketext=(TextView) view.findViewById(R.id.liketext);
-            likeicon=(ImageView) view.findViewById(R.id.likeicon);
+            likelayout=(ImageView) view.findViewById(R.id.likeicon);
+           // liketext=(TextView) view.findViewById(R.id.liketext);
+            //likeicon=(ImageView) view.findViewById(R.id.likeicon);
 
         }
     }

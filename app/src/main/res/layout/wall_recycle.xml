@@ -8,13 +8,10 @@
         android:layout_height="match_parent"
         rfal:rfal_frame_color="#ffffff"
         rfal:rfal_frame_alpha="0.7"
-        android:paddingTop="10sp"
-        android:background="@color/blue"
+        android:paddingTop="2sp"
     >
 
         <android.support.v7.widget.RecyclerView
-
-            android:layout_marginTop="10sp"
             android:id="@+id/recycler_view"
 
             android:layout_width="match_parent"
