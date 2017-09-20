@@ -79,10 +79,10 @@
                         android:gravity="center"
                         >
                         <ImageView
-                            android:id="@+id/likeicon"
+                            android:id="@+id/likeicon1"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/likethumb"
+                            android:src="@drawable/likethumbstroke"
                             android:padding="10dp"
                             />
                     </LinearLayout>
@@ -97,7 +97,7 @@
                             android:id="@+id/commenticon"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/comment"
+                            android:src="@drawable/commentstroke"
                             android:padding="10dp"
                             />
                     </LinearLayout>

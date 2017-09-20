@@ -121,13 +121,16 @@ public class PostRecAdapter  extends RecyclerView.Adapter<PostRecAdapter.MyViewH
             public void onClick(View v) {
                 //System.err.println("Like Post value = " + holder.liketext.getText());
 
-                if(holder.likelayout.getResources().equals(R.drawable.likethumb))
+                boolean a = holder.likelayout.getId()==(R.id.likeicon1);
+                System.err.println("Image resource on like touch ="+a);
+
+                if(holder.likelayout.getId()==(R.id.likeicon1))
               {
 
 
                   System.err.println("i am in if likethumb");
                   //System.err.println("Like Post in if" + holder.liketext.getText());
-                  holder.likelayout.setImageResource(R.drawable.unlike);
+                  holder.likelayout.setImageResource(R.drawable.likethumbstroke);
                  // holder.liketext.setText("Unlike");
                   OtpGen otpgen=new OtpGen();
                   otpgen.execute("http://omtii.com/mile/updatelike.php?id="+postid+"&status=1");
@@ -217,7 +220,7 @@ public class PostRecAdapter  extends RecyclerView.Adapter<PostRecAdapter.MyViewH
             postcomments=(TextView) view.findViewById(R.id.commentcount);
             postshare=(TextView) view.findViewById(R.id.sharecount);
             posttime=(TextView) view.findViewById(R.id.TimeStamp);
-            likelayout=(ImageView) view.findViewById(R.id.likeicon);
+            likelayout=(ImageView) view.findViewById(R.id.likeicon1);
            // liketext=(TextView) view.findViewById(R.id.liketext);
             //likeicon=(ImageView) view.findViewById(R.id.likeicon);
 
