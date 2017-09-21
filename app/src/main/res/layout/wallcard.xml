@@ -78,6 +78,9 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         >
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
                         <ImageView
                             android:id="@+id/likeicon1"
                             android:layout_width="match_parent"
@@ -85,6 +88,13 @@
                             android:src="@drawable/likethumbstroke"
                             android:padding="10dp"
                             />
+                            <ImageView
+                                android:id="@+id/likeicon2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="10dp"
+                                />
+                        </RelativeLayout>
                     </LinearLayout>
 
                     <LinearLayout
@@ -93,13 +103,24 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         >
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
                         <ImageView
-                            android:id="@+id/commenticon"
+                            android:id="@+id/commenticon1"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:src="@drawable/commentstroke"
                             android:padding="10dp"
                             />
+
+                            <ImageView
+                                android:id="@+id/commenticon2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="10dp"
+                                />
+                        </RelativeLayout>
                     </LinearLayout>
 
                     <LinearLayout
