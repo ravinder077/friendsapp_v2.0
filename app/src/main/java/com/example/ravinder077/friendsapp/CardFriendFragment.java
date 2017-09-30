@@ -1,6 +1,8 @@
 package com.example.ravinder077.friendsapp;
 
 import android.app.ProgressDialog;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -14,10 +16,16 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -52,11 +60,66 @@ public class CardFriendFragment extends Fragment {
     RecyclerView MyRecyclerView;
     static MyAdapter adapter;
     ArrayList<FriendData> listitems = new ArrayList<>();
+    static ArrayList<FriendData> listitems1 = new ArrayList<>();
 
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
+        menu.clear();
+        inflater.inflate(R.menu.friendmenu,menu);
+        // Associate searchable configuration with the SearchView
+        SearchManager searchManager =
+                (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView =
+                (SearchView) menu.findItem(R.id.action_search).getActionView();
+
+        final EditText searchEditText = (EditText) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
+
+        searchEditText.setHint("Search");
+
+
+        searchView.setSearchableInfo(
+                searchManager.getSearchableInfo(getActivity().getComponentName()));
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                CardFriendFragment cardFriendFragment=new CardFriendFragment();
+
+                cardFriendFragment.myFilter(newText);
+                return false;
+
+            }
+        });
+
+
+       // return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        Log.d("onOptionsItemSelected","yes");
+        switch (item.getItemId()) {
+            case R.id.refresh:
+                Toast.makeText(getActivity(), "Friends Updated Started", Toast.LENGTH_SHORT).show();
+                getActivity().startService(new Intent(getContext(), PhotoServiceFriends.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setHasOptionsMenu(true);
         Toast.makeText(getContext(), "CardGroupFragment", Toast.LENGTH_SHORT).show();
 
         ArrayList<FriendData> al = new ArrayList<>();
@@ -108,6 +171,20 @@ public class CardFriendFragment extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
         }*/
+
+
+    }
+
+    public  void done( ArrayList<FriendData> listitems)
+    {
+
+
+         //System.err.println("items received "+listitems);
+
+
+          initializeList(listitems);
+         adapter.notifyDataSetChanged();
+
 
 
     }
@@ -336,6 +413,7 @@ public class CardFriendFragment extends Fragment {
                 item.setImage(cd.getImage());
 
                 System.err.println("cd.getImage()" + cd.getImage());
+                System.err.println("cd.getName()" + cd.getName());
                 // item.setImgg(cd.getImgg());
                 item.setName(cd.getName());
                 listitems.add(item);
@@ -345,8 +423,42 @@ public class CardFriendFragment extends Fragment {
         }
 
 
+        //adapter.notifyDataSetChanged();
+
+
 
     }
+    public static void initializeList1( ArrayList<FriendData> al) {
+        listitems1.clear();
+
+        for(FriendData cd:al) {
+
+            if (!cd.getImage().equals("null")) {
+                FriendData item = new FriendData();
+                item.setId(cd.getId());
+                item.setImg(cd.getImg());
+                item.setBimg(cd.getBimg());
+                item.setImage(cd.getImage());
+
+                System.err.println("cd.getImage()" + cd.getImage());
+                // item.setImgg(cd.getImgg());
+                item.setName(cd.getName());
+                listitems1.add(item);
+
+
+                System.err.println("found fimage  "+cd.getImage());
+                System.err.println("found fname  "+cd.getName());
+
+            }
+
+        }
+
+
+
+    }
+
+
+
 
 
     public class ConnDBPhoto extends AsyncTask<ArrayList<FriendData>,String,ArrayList<FriendData>>
@@ -476,5 +588,8 @@ public class CardFriendFragment extends Fragment {
 
 
     }
+
+
+
 
 }

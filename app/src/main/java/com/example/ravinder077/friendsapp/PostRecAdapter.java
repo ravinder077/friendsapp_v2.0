@@ -116,7 +116,7 @@ public class PostRecAdapter  extends RecyclerView.Adapter<PostRecAdapter.MyViewH
         }
 
         final String postid=wallData.getPostid();
-        holder.likelayout.setOnClickListener(new View.OnClickListener() {
+  /*      holder.likelayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 System.err.println("Like Post value = " + holder.liketext.getText());
@@ -161,7 +161,7 @@ public class PostRecAdapter  extends RecyclerView.Adapter<PostRecAdapter.MyViewH
                 }
 
             }
-        });
+        });*/
         System.err.println("Post id" + wallData.getPostid());
 
         holder.postlikes.setText(wallData.getPostlikes());

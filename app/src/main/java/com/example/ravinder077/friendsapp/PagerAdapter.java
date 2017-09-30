@@ -22,7 +22,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                 return tab22;
 
             case 1:
-                TabA tab2 = new TabA();
+                ChatFragment tab2 = new ChatFragment();
                 return tab2;
             case 2:
                 CardFriendFragment cff=new CardFriendFragment();
