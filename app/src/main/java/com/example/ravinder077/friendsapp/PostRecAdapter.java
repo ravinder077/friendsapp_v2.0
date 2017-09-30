@@ -119,13 +119,19 @@ public class PostRecAdapter  extends RecyclerView.Adapter<PostRecAdapter.MyViewH
   /*      holder.likelayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.err.println("Like Post value = " + holder.liketext.getText());
+                //System.err.println("Like Post value = " + holder.liketext.getText());
 
-                if(holder.liketext.getText().equals("Like"))
+                boolean a = holder.likelayout.getId()==(R.id.likeicon1);
+                System.err.println("Image resource on like touch ="+a);
+
+                if(holder.likelayout.getId()==(R.id.likeicon1))
               {
-                  System.err.println("Like Post in if" + holder.liketext.getText());
-                  holder.likeicon.setImageResource(R.drawable.unlike);
-                  holder.liketext.setText("Unlike");
+
+                  holder.likelayout.setId(R.id.likeicon2);
+                  System.err.println("i am in if likethumb");
+                  //System.err.println("Like Post in if" + holder.liketext.getText());
+                  holder.likelayout.setImageResource(R.drawable.likethumb);
+                 // holder.liketext.setText("Unlike");
                   OtpGen otpgen=new OtpGen();
                   otpgen.execute("http://omtii.com/mile/updatelike.php?id="+postid+"&status=1");
                   try {
@@ -140,9 +146,12 @@ public class PostRecAdapter  extends RecyclerView.Adapter<PostRecAdapter.MyViewH
               }
               else
                 {
-                    System.err.println("UnLike Post in else" + holder.liketext.getText());
-                    holder.likeicon.setImageResource(R.drawable.likethumb);
-                    holder.liketext.setText("Like");
+
+                    System.err.println("i am in else likethumb");
+                    holder.likelayout.setId(R.id.likeicon1);
+                //    System.err.println("UnLike Post in else" + holder.liketext.getText());
+                    holder.likelayout.setImageResource(R.drawable.likethumbstroke);
+                    //holder.liketext.setText("Like");
 
                     OtpGen otpgen=new OtpGen();
                     otpgen.execute("http://omtii.com/mile/updatelike.php?id="+postid+"&status=0");
@@ -157,6 +166,63 @@ public class PostRecAdapter  extends RecyclerView.Adapter<PostRecAdapter.MyViewH
 
                     System.err.println("Post like count " + wallData.getPostlikes());
                     System.err.println("else part "+"http://omtii.com/mile/updatelike.php?id="+postid+"&status=0");
+
+                }
+
+            }
+        });
+
+        holder.commentlayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //System.err.println("Like Post value = " + holder.liketext.getText());
+
+                boolean a = holder.commentlayout.getId()==(R.id.commenticon1);
+                System.err.println("Image resource on comment touch ="+a);
+
+                if(holder.commentlayout.getId()==(R.id.commenticon1))
+                {
+
+                    holder.commentlayout.setId(R.id.commenticon2);
+                    System.err.println("i am in if commenticon");
+                    //System.err.println("Like Post in if" + holder.liketext.getText());
+                    holder.commentlayout.setImageResource(R.drawable.comment);
+                    // holder.liketext.setText("Unlike");
+                   /* OtpGen otpgen=new OtpGen();
+                    otpgen.execute("http://omtii.com/mile/updatelike.php?id="+postid+"&status=1");
+                    try {
+                        holder.postlikes.setText(otpgen.get());
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    }
+                    System.err.println("Post like count " + wallData.getPostlikes());
+                    System.err.println("else part "+"http://omtii.com/mile/updatelike.php?id="+postid+"&status=1");*/
+                }
+                else
+                {
+
+                    System.err.println("i am in else commenticon");
+                    holder.commentlayout.setId(R.id.commenticon1);
+                    //    System.err.println("UnLike Post in else" + holder.liketext.getText());
+                    holder.commentlayout.setImageResource(R.drawable.commentstroke);
+                    //holder.liketext.setText("Like");
+/*
+                    OtpGen otpgen=new OtpGen();
+                    otpgen.execute("http://omtii.com/mile/updatelike.php?id="+postid+"&status=0");
+
+                    try {
+                        holder.postlikes.setText(otpgen.get());
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    }
+
+                    System.err.println("Post like count " + wallData.getPostlikes());
+                    System.err.println("else part "+"http://omtii.com/mile/updatelike.php?id="+postid+"&status=0");
+                    */
 
                 }
 
@@ -196,8 +262,9 @@ public class PostRecAdapter  extends RecyclerView.Adapter<PostRecAdapter.MyViewH
         public TextView postcomments;
         public TextView postshare;
         public TextView posttime;
-        public TextView liketext;
-        public RelativeLayout likelayout;
+        public ImageView commentlayout;
+        //public TextView liketext;
+        public ImageView likelayout;
         public ImageView likeicon;
         public MyViewHolder(View view) {
             super(view);
@@ -210,9 +277,10 @@ public class PostRecAdapter  extends RecyclerView.Adapter<PostRecAdapter.MyViewH
             postcomments=(TextView) view.findViewById(R.id.commentcount);
             postshare=(TextView) view.findViewById(R.id.sharecount);
             posttime=(TextView) view.findViewById(R.id.TimeStamp);
-            likelayout=(RelativeLayout) view.findViewById(R.id.likelayout);
-            liketext=(TextView) view.findViewById(R.id.liketext);
-            likeicon=(ImageView) view.findViewById(R.id.likeicon);
+            likelayout=(ImageView) view.findViewById(R.id.likeicon1);
+            commentlayout = (ImageView) view.findViewById(R.id.commenticon1);
+           // liketext=(TextView) view.findViewById(R.id.liketext);
+            //likeicon=(ImageView) view.findViewById(R.id.likeicon);
 
         }
     }
