@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.READ_SMS"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
     <application
-        android:name=".ApplicationController"
+        android:name=".controller.ApplicationController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:largeHeap="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".login">
+        <activity android:name=".activity.ChatActivityTest">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,65 +30,65 @@
         </activity>
 
 
-        <activity android:name=".PageCreated"></activity>
-        <activity android:name=".PageContents">
+        <activity android:name=".activity.PageCreated"></activity>
+        <activity android:name=".activity.PageContents">
 
         </activity>
 
-        <activity android:name=".WallCardClick">
+        <activity android:name=".activity.WallCardClick">
 
         </activity>
 
-        <activity android:name=".ChatActivity">
+        <activity android:name=".activity.ChatActivity">
 
         </activity>
 
-        <activity android:name=".GroupCreate">
+        <activity android:name=".activity.GroupCreate">
 
         </activity>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.MainActivity">
 
         </activity>
 
-        <activity android:name=".MyGpsTracker">
+        <activity android:name=".activity.MyGpsTracker">
 
         </activity>
-        <activity android:name=".NewChatFriend">
+        <activity android:name=".activity.NewChatFriend">
 
         </activity>
 
-        <activity android:name=".otp">
+        <activity android:name=".activity.otp">
 
         </activity>
-        <activity android:name=".Pagecatagory">
+        <activity android:name=".activity.Pagecatagory">
 
         </activity>
-        <activity android:name=".PageDescription">
+        <activity android:name=".activity.PageDescription">
 
         </activity>
-        <activity android:name=".PostData">
+        <activity android:name=".model.PostData">
 
         </activity>
-        <activity android:name=".ProfilePage">
+        <activity android:name=".activity.ProfilePage">
 
         </activity>
-        <activity android:name=".Upload_Photo">
+        <activity android:name=".activity.Upload_Photo">
 
         </activity>
-        <activity android:name=".WallCardClick">
+        <activity android:name=".activity.WallCardClick">
 
         </activity>
-        <activity android:name=".PostPhoto">
+        <activity android:name=".activity.PostPhoto">
 
         </activity>
-        <activity android:name=".User_Name">
+        <activity android:name=".activity.User_Name">
 
         </activity>
-        <activity android:name=".PageDetail"></activity>
+        <activity android:name=".activity.PageDetail"></activity>
 
-        <service android:name=".PhotoService" />
-<service android:name="PhotoServiceFriends"/>
+        <service android:name=".service.PhotoService" />
+<service android:name=".service.PhotoServiceFriends"/>
 
         <intent-filter>
             <action android:name="android.intent.action.SEARCH" />

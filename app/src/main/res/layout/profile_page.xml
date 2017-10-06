@@ -2,9 +2,113 @@
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/pagehome"
     android:orientation="vertical"
+
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+
+
+
+                android:elevation="10dp"
+                android:layout_centerInParent="true"
+                android:id="@+id/header_cover_image_progressbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/header_cover_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/pagecoverphoto" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user_profile_photo"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/header_cover_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-60dp"
+                android:elevation="5dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pageprofile"
+                app:civ_border_color="@android:color/white"
+                app:civ_border_overlay="true"
+                app:civ_border_width="2dp" />
+
+            <RelativeLayout
+                android:id="@+id/profile_layout"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:layout_below="@+id/header_cover_image"
+                android:background="@android:color/holo_orange_light"
+                android:paddingBottom="24dp">
+
+
+                <EditText
+                    android:id="@+id/user_profile_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:hint="Page Name"
+                    android:textColor="#fff"
+                    android:textColorHint="#c6ffffff"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_layout"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+
+                <Button
+                    android:id="@+id/submit_action"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@android:color/holo_blue_dark"
+                    android:clickable="true"
+                    android:elevation="4dp"
+                    android:padding="20dp"
+                    android:text="Contiune"
+                    android:textColor="#fff" />
+
+                <Button
+                    android:id="@+id/cancel_action"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@android:color/holo_green_dark"
+                    android:clickable="true"
+                    android:elevation="4dp"
+                    android:padding="20dp"
+                    android:text="Back"
+                    android:textColor="#fff" />
+
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -17,101 +121,4 @@
     </android.support.v7.widget.Toolbar>
 
 
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_marginTop="0dp"
-    android:layout_height="match_parent">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/header_cover_image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            android:src="@drawable/pagecoverphoto" />
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/user_profile_photo"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_below="@+id/header_cover_image"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="-60dp"
-            android:src="@drawable/pageprofile"
-            android:elevation="5dp"
-            app:civ_border_overlay="true"
-            app:civ_border_color="@android:color/white"
-            app:civ_border_width="2dp"
-            android:scaleType="centerCrop" />
-
-        <RelativeLayout
-            android:id="@+id/profile_layout"
-            android:layout_width="match_parent"
-            android:layout_height="190dp"
-            android:layout_below="@+id/header_cover_image"
-            android:background="@android:color/holo_red_light"
-            android:paddingBottom="24dp">
-
-
-
-            <EditText
-                android:id="@+id/user_profile_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:hint="Page Name"
-                android:textColor="#fff"
-                android:layout_centerVertical="true"
-                android:textColorHint="#c6ffffff"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
-
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/profile_layout"
-            android:layout_marginTop="5dp"
-            android:orientation="vertical">
-
-
-
-
-            <Button
-                android:id="@+id/submit_action"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@android:color/holo_blue_dark"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:textColor="#fff"
-                android:text="Contiune"/>
-
-            <Button
-                android:id="@+id/cancel_action"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@android:color/holo_green_dark"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:textColor="#fff"
-                android:text="Back"/>
-
-
-
-
-        </LinearLayout>
-    </RelativeLayout>
-</ScrollView>
 </LinearLayout>
