@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ravinder077.friendsapp">
+    package="com.tuespotsolutions.ravinder077.friendsapp">
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.READ_SMS"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
     <application
-        android:name=".controller.ApplicationController"
+        android:name="com.tuespotsolutions.ravinder077.friendsapp.controller.ApplicationController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:largeHeap="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ChatActivityTest">
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.activity.login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,65 +30,69 @@
         </activity>
 
 
-        <activity android:name=".activity.PageCreated"></activity>
-        <activity android:name=".activity.PageContents">
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.activity.PageCreated"></activity>
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.activity.PageContents">
 
         </activity>
 
-        <activity android:name=".activity.WallCardClick">
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.activity.ChatActivityTest"></activity>
+
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.activity.WallCardClick">
 
         </activity>
 
-        <activity android:name=".activity.ChatActivity">
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.activity.PageMainActivity"></activity>
+
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.activity.ChatActivity">
 
         </activity>
 
-        <activity android:name=".activity.GroupCreate">
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.activity.GroupCreate">
 
         </activity>
 
-        <activity android:name=".activity.MainActivity">
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.activity.MainActivity">
 
         </activity>
 
-        <activity android:name=".activity.MyGpsTracker">
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.activity.MyGpsTracker">
 
         </activity>
-        <activity android:name=".activity.NewChatFriend">
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.activity.NewChatFriend">
 
         </activity>
 
-        <activity android:name=".activity.otp">
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.activity.otp">
 
         </activity>
-        <activity android:name=".activity.Pagecatagory">
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.activity.Pagecatagory">
 
         </activity>
-        <activity android:name=".activity.PageDescription">
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.activity.PageDescription">
 
         </activity>
-        <activity android:name=".model.PostData">
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.model.PostData">
 
         </activity>
-        <activity android:name=".activity.ProfilePage">
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.activity.ProfilePage">
 
         </activity>
-        <activity android:name=".activity.Upload_Photo">
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.activity.Upload_Photo">
 
         </activity>
-        <activity android:name=".activity.WallCardClick">
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.activity.WallCardClick">
 
         </activity>
-        <activity android:name=".activity.PostPhoto">
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.activity.PostPhoto">
 
         </activity>
-        <activity android:name=".activity.User_Name">
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.activity.User_Name">
 
         </activity>
-        <activity android:name=".activity.PageDetail"></activity>
+        <activity android:name="com.tuespotsolutions.ravinder077.friendsapp.activity.PageDetail"></activity>
 
-        <service android:name=".service.PhotoService" />
-<service android:name=".service.PhotoServiceFriends"/>
+        <service android:name="com.tuespotsolutions.ravinder077.friendsapp.service.PhotoService" />
+<service android:name="com.tuespotsolutions.ravinder077.friendsapp.service.PhotoServiceFriends"/>
 
         <intent-filter>
             <action android:name="android.intent.action.SEARCH" />

@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/pagehome"
     android:orientation="vertical"
-
+    android:background="@drawable/bg_messages"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 

@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:id="@+id/llFrame">
+
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/gallaryrec"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+
+        android:scrollbars="vertical"
+        android:dividerHeight="0dp"
+        android:paddingBottom="10dp"
+
+        android:layout_marginTop="5dp"/>
+
+    <LinearLayout
+        android:id="@+id/form"
+
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/cardview_dark_background"
+        android:orientation="horizontal"
+        android:paddingBottom="2dp"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.9"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            >
+
+            <EditText
+                android:id="@+id/etMessage"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/idattachment"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_attach"/>
+        <TextView
+            android:id="@+id/tvSendMessage"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:textColor="@android:color/white"
+            android:layout_height="match_parent"
+            android:text="Send"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+    </LinearLayout>
+
+</RelativeLayout>
